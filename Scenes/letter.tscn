@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://wrfanq0j4cxn"]
+
+[ext_resource type="Shader" path="res://Shaders/dissolve.gdshader" id="1_04gyp"]
+[ext_resource type="Script" path="res://Scenes/letter.gd" id="1_l27go"]
+[ext_resource type="FontFile" uid="uid://cbiqukoa57qgb" path="res://Assets/Fonts/Roboto-Bold.ttf" id="2_5tvhc"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1gfkm"]
+frequency = 0.255
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xf0ur"]
+noise = SubResource("FastNoiseLite_1gfkm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5tpja"]
+shader = ExtResource("1_04gyp")
+shader_parameter/dissolve_pct = 0.0
+shader_parameter/ask_color = Color(0.894118, 0.368627, 0.368627, 1)
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_xf0ur")
+
+[sub_resource type="LabelSettings" id="LabelSettings_hy4wm"]
+font = ExtResource("2_5tvhc")
+font_size = 32
+font_color = Color(0.895833, 0.368598, 0.368598, 1)
+outline_color = Color(1, 1, 1, 0.337255)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Letter" type="Label"]
+material = SubResource("ShaderMaterial_5tpja")
+offset_right = 64.0
+offset_bottom = 38.0
+pivot_offset = Vector2(32, 16)
+text = "A"
+label_settings = SubResource("LabelSettings_hy4wm")
+horizontal_alignment = 1
+script = ExtResource("1_l27go")
+metadata/_edit_vertical_guides_ = [32.0]
+metadata/_edit_horizontal_guides_ = [24.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.372549)
+
+[node name="Baloon" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(32, 24)
+scale = Vector2(0.4, 0.4)

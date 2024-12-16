@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=3 uid="uid://da2idyabqrl3b"]
+
+[ext_resource type="Script" path="res://Scenes/win_screen.gd" id="1_4cfjq"]
+[ext_resource type="FontFile" uid="uid://cbiqukoa57qgb" path="res://Assets/Fonts/Roboto-Bold.ttf" id="1_kaxq5"]
+[ext_resource type="LabelSettings" uid="uid://de5678chpjhfp" path="res://Assets/Fonts/StandardFont.tres" id="2_wfjii"]
+[ext_resource type="LabelSettings" uid="uid://syw0pv3f8k76" path="res://Assets/Fonts/StandardFont_White.tres" id="4_03xs4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_crkay"]
+font = ExtResource("1_kaxq5")
+font_size = 45
+font_color = Color(0.895833, 0.368598, 0.368598, 1)
+outline_color = Color(1, 1, 1, 0.337255)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="WinScreen" type="Control"]
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_4cfjq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.486275, 0.478431, 0.317647, 0.745098)
+
+[node name="UpMsg" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -268.0
+offset_right = 144.0
+offset_bottom = -192.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Bravo, hai vinto!
+Ecco la storia che hai scritto"
+label_settings = SubResource("LabelSettings_crkay")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -448.0
+offset_top = -52.0
+offset_right = 456.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Regina"
+label_settings = ExtResource("2_wfjii")
+
+[node name="StoryText" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(900, 200)
+layout_mode = 2
+text = "La regina era bella e gentile, con i capelli biondi e gli occhi azzurri. La regina amava i fiori e gli animali, e passava le giornate a passeggiare nei giardini del castello. La regina era amata da tutti, per la sua bontà e la sua generosità."
+label_settings = ExtResource("4_03xs4")
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Score:"
+label_settings = ExtResource("2_wfjii")
+
+[node name="ScoreNumber" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "00000"
+label_settings = ExtResource("4_03xs4")
+
+[node name="SpaceMsg" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -216.0
+offset_top = -72.0
+offset_right = 271.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "PREMI SPAZIO PER CONTINUARE"
+label_settings = ExtResource("4_03xs4")

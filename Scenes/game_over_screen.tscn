@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://blc7gqqm3c0xj"]
+
+[ext_resource type="FontFile" uid="uid://cbiqukoa57qgb" path="res://Assets/Fonts/Roboto-Bold.ttf" id="1_4ai0r"]
+[ext_resource type="Script" path="res://Scenes/game_over_screen.gd" id="1_mhl0i"]
+[ext_resource type="LabelSettings" uid="uid://syw0pv3f8k76" path="res://Assets/Fonts/StandardFont_White.tres" id="2_snvoh"]
+[ext_resource type="LabelSettings" uid="uid://de5678chpjhfp" path="res://Assets/Fonts/StandardFont.tres" id="3_718rf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_crkay"]
+font = ExtResource("1_4ai0r")
+font_size = 64
+font_color = Color(0.895833, 0.368598, 0.368598, 1)
+outline_color = Color(1, 1, 1, 0.337255)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="GameOverScreen" type="Control"]
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_mhl0i")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.513726)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -164.0
+offset_right = 182.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER!"
+label_settings = SubResource("LabelSettings_crkay")
+
+[node name="Highscore" type="Label" parent="."]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 304.0
+offset_right = 718.0
+offset_bottom = 342.0
+text = "HIGHSCORE: 00000"
+label_settings = ExtResource("3_718rf")
+
+[node name="SpaceMsg" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -232.0
+offset_right = 238.0
+offset_bottom = -194.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "PREMI SPAZIO PER RIPROVARE"
+label_settings = ExtResource("2_snvoh")

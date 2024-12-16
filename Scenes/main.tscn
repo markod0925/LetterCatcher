@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://rk1a47bnre2t"]
+
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_fepgo"]
+[ext_resource type="PackedScene" uid="uid://wrfanq0j4cxn" path="res://Scenes/letter.tscn" id="2_qphlm"]
+[ext_resource type="Texture2D" uid="uid://pksythw4pg0b" path="res://Assets/env/colored_castle.png" id="3_h3s4m"]
+[ext_resource type="PackedScene" uid="uid://bp3nakpjjn6ja" path="res://Scenes/explosion.tscn" id="3_u7id1"]
+[ext_resource type="LabelSettings" uid="uid://de5678chpjhfp" path="res://Assets/Fonts/StandardFont.tres" id="4_l2wg0"]
+[ext_resource type="PackedScene" uid="uid://bstijr8thxqs0" path="res://Assets/vfx/shoot.tscn" id="4_s52cq"]
+[ext_resource type="PackedScene" uid="uid://blc7gqqm3c0xj" path="res://Scenes/game_over_screen.tscn" id="5_f6fbr"]
+[ext_resource type="PackedScene" uid="uid://da2idyabqrl3b" path="res://Scenes/win_screen.tscn" id="7_wo1di"]
+[ext_resource type="PackedScene" uid="uid://gqltcffyy5te" path="res://Assets/vfx/flame_below.tscn" id="8_3u3ae"]
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("letter_timer", "letter_container", "balloon_container", "score_label", "level_label")]
+script = ExtResource("1_fepgo")
+letter_scene = ExtResource("2_qphlm")
+expl_scene = ExtResource("3_u7id1")
+letter_timer = NodePath("LetterTime")
+letter_container = NodePath("LetterContainer")
+balloon_container = NodePath("BalloonContainer")
+score_label = NodePath("ScoreLabel")
+laser_scene = ExtResource("4_s52cq")
+level_label = NodePath("LevelLabel")
+
+[node name="LetterContainer" type="Node" parent="."]
+
+[node name="BalloonContainer" type="Node" parent="."]
+
+[node name="LetterTime" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(1152, 0)
+autoscroll = Vector2(5, 0)
+
+[node name="MainBg" type="Sprite2D" parent="Parallax2D"]
+scale = Vector2(1.125, 0.881951)
+texture = ExtResource("3_h3s4m")
+centered = false
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 936.0
+offset_top = 552.0
+offset_right = 1146.0
+offset_bottom = 590.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+text = "00000"
+label_settings = ExtResource("4_l2wg0")
+horizontal_alignment = 2
+
+[node name="LevelLabel" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 552.0
+offset_right = 226.0
+offset_bottom = 590.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+text = "Level: 1"
+label_settings = ExtResource("4_l2wg0")
+
+[node name="Screens" type="CanvasLayer" parent="."]
+
+[node name="GameOverScreen" parent="Screens" instance=ExtResource("5_f6fbr")]
+visible = false
+
+[node name="WinScreen" parent="Screens" instance=ExtResource("7_wo1di")]
+visible = false
+
+[node name="Flames" parent="." instance=ExtResource("8_3u3ae")]
+position = Vector2(576, 648)
+scale = Vector2(0.5, 0.5)
+
+[connection signal="timeout" from="LetterTime" to="." method="_on_letter_time_timeout"]

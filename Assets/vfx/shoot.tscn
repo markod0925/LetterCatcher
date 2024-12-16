@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bstijr8thxqs0"]
+
+[ext_resource type="Script" path="res://Assets/vfx/shoot.gd" id="1_xcjs0"]
+
+[sub_resource type="Curve" id="Curve_1lswh"]
+_data = [Vector2(0, 0.501887), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_v6ek3"]
+offsets = PackedFloat32Array(0, 0.769231)
+colors = PackedColorArray(1, 1, 1, 0, 0.176595, 0.523163, 0.96875, 1)
+
+[node name="Shoot" type="Line2D"]
+width = 4.0
+width_curve = SubResource("Curve_1lswh")
+default_color = Color(0.176471, 0.521569, 0.968627, 1)
+gradient = SubResource("Gradient_v6ek3")
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("1_xcjs0")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
