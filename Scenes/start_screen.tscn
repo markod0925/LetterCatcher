@@ -1,0 +1,187 @@
+[gd_scene load_steps=14 format=3 uid="uid://ddh1ya3eo1r2k"]
+
+[ext_resource type="Script" path="res://Scenes/start_screen.gd" id="1_krd8m"]
+[ext_resource type="Texture2D" uid="uid://cohjldet1u0br" path="res://Assets/env/MainBG.png" id="1_w78yl"]
+[ext_resource type="LabelSettings" uid="uid://dkxqwnbtyd37q" path="res://Assets/Fonts/TitleFontBigBlue.tres" id="2_n0pen"]
+[ext_resource type="FontFile" uid="uid://cq2eoifnq63wf" path="res://Assets/Fonts/SourGummy-VariableFontwght.ttf" id="3_dxkwu"]
+[ext_resource type="Theme" uid="uid://qls1k3mlglce" path="res://Assets/Themes/button_theme.tres" id="4_hc1st"]
+
+[sub_resource type="Shader" id="Shader_l2mqf"]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise_tex;
+uniform float dissolve_pct:hint_range(0.0, 1.0) = 0.0f;
+
+void fragment()
+{
+	//float dissolve_pct = 0.5*sin(TIME*0.5)+0.5;
+	vec4 original_color = texture(TEXTURE, UV);
+	vec4 noise = texture(noise_tex, UV);
+	
+	if (dissolve_pct >= noise.r)
+	{
+		original_color.a = 0.0;
+	}
+	
+	COLOR = original_color;
+	//COLOR.a = original_color.a;
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cygvc"]
+frequency = 0.006
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s724y"]
+noise = SubResource("FastNoiseLite_cygvc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m5x3m"]
+shader = SubResource("Shader_l2mqf")
+shader_parameter/dissolve_pct = 0.0
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_s724y")
+
+[sub_resource type="LabelSettings" id="LabelSettings_6jjqe"]
+font = ExtResource("3_dxkwu")
+font_size = 32
+font_color = Color(0.744792, 0.57508, 0.0659451, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_bsfso"]
+resource_name = "dissolve"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/dissolve_pct")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 4.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_pvp5r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/dissolve_pct")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qvplf"]
+_data = {
+"RESET": SubResource("Animation_pvp5r"),
+"dissolve": SubResource("Animation_bsfso")
+}
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_krd8m")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_m5x3m")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_w78yl")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Titolo" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "SALVA LE STORIE"
+label_settings = ExtResource("2_n0pen")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Titolo2" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Difficoltà:"
+label_settings = SubResource("LabelSettings_6jjqe")
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 45)
+layout_mode = 2
+theme = ExtResource("4_hc1st")
+theme_override_constants/margin_left = 20
+
+[node name="Facile" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+text = "FACILE"
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 45)
+layout_mode = 2
+theme = ExtResource("4_hc1st")
+theme_override_constants/margin_left = 20
+
+[node name="Intermedio" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer4"]
+layout_mode = 2
+text = "INTERMEDIO"
+
+[node name="MarginContainer5" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 45)
+layout_mode = 2
+theme = ExtResource("4_hc1st")
+theme_override_constants/margin_left = 20
+
+[node name="Difficile" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer5"]
+layout_mode = 2
+text = "DIFFICILE"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qvplf")
+}
+autoplay = "dissolve"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer3/Facile" to="." method="_on_facile_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer4/Intermedio" to="." method="_on_intermedio_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer5/Difficile" to="." method="_on_difficile_pressed"]

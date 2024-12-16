@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dkxqwnbtyd37q"]
+
+[ext_resource type="FontFile" uid="uid://cq2eoifnq63wf" path="res://Assets/Fonts/SourGummy-VariableFontwght.ttf" id="1_d36eo"]
+
+[resource]
+font = ExtResource("1_d36eo")
+font_size = 72
+font_color = Color(0.0659451, 0.405368, 0.744792, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
