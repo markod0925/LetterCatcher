@@ -48,7 +48,7 @@ offset_bottom = -192.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Bravo, hai vinto!
-Ecco la storia che hai scritto"
+Ecco la storia che hai salvato:"
 label_settings = SubResource("LabelSettings_crkay")
 horizontal_alignment = 1
 

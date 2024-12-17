@@ -1,0 +1,76 @@
+[gd_scene load_steps=17 format=3 uid="uid://shmw5wwufhv0"]
+
+[ext_resource type="Texture2D" uid="uid://mho4vdsp8hqg" path="res://Assets/Effect_Explosion_Ground1/fx_explosion_ground1_02.png" id="3_bp7p4"]
+[ext_resource type="Texture2D" uid="uid://byr8ydrw1nwcs" path="res://Assets/Effect_Explosion_Ground1/fx_explosion_ground1_03.png" id="4_bq2x5"]
+[ext_resource type="Texture2D" uid="uid://dsbuvmdk5jbs7" path="res://Assets/Effect_Explosion_Ground1/fx_explosion_ground1_04.png" id="5_xjksb"]
+[ext_resource type="Texture2D" uid="uid://l86pqm0aad0s" path="res://Assets/Effect_Explosion_Ground1/fx_explosion_ground1_05.png" id="6_jckj8"]
+[ext_resource type="Texture2D" uid="uid://bpcrcqhtovi1" path="res://Assets/Effect_Explosion_Ground1/fx_explosion_ground1_06.png" id="7_4pr2e"]
+[ext_resource type="Texture2D" uid="uid://bii1ea62h6y2b" path="res://Assets/Effect_Explosion_Ground1/fx_explosion_ground1_07.png" id="8_i3u13"]
+[ext_resource type="Texture2D" uid="uid://k4hjs6qrvaxn" path="res://Assets/Effect_Explosion_Ground1/fx_explosion_ground1_08.png" id="9_au5ue"]
+[ext_resource type="Texture2D" uid="uid://b2f4vg3ls2ogx" path="res://Assets/Effect_Explosion_Ground1/fx_explosion_ground1_09.png" id="10_l7i1s"]
+[ext_resource type="Texture2D" uid="uid://dteae7bep1hpq" path="res://Assets/Effect_Explosion_Ground1/fx_explosion_ground1_10.png" id="11_3f0lu"]
+[ext_resource type="Texture2D" uid="uid://6jl6cr3b1ddi" path="res://Assets/Effect_Explosion_Ground1/fx_explosion_ground1_11.png" id="12_snbth"]
+[ext_resource type="Texture2D" uid="uid://bd6no5qg6vdmn" path="res://Assets/Effect_Explosion_Ground1/fx_explosion_ground1_12.png" id="13_mq0c5"]
+[ext_resource type="Texture2D" uid="uid://c120jjomuvalq" path="res://Assets/Effect_Explosion_Ground1/fx_explosion_ground1_13.png" id="14_14iss"]
+[ext_resource type="Texture2D" uid="uid://c3yvkq27c4msy" path="res://Assets/Effect_Explosion_Ground1/fx_explosion_ground1_14.png" id="15_vougl"]
+[ext_resource type="Texture2D" uid="uid://dp4p107penadc" path="res://Assets/Effect_Explosion_Ground1/fx_explosion_ground1_15.png" id="16_h1glp"]
+[ext_resource type="Script" path="res://Scenes/burning.gd" id="20_dja32"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gvvxu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_bp7p4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bq2x5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xjksb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jckj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4pr2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_i3u13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_au5ue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_l7i1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3f0lu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_snbth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_mq0c5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_14iss")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vougl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_h1glp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 18.0
+}]
+
+[node name="Burning" type="AnimatedSprite2D"]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_gvvxu")
+autoplay = "default"
+offset = Vector2(75, -80)
+script = ExtResource("20_dja32")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

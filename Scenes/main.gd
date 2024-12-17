@@ -10,6 +10,7 @@ extends Node2D
 @export var level_label : Label
 @onready var game_over_screen = $Screens/GameOverScreen
 @onready var win_screen = $Screens/WinScreen
+@onready var main_bg = $Parallax2D/MainBg
 
 const MARGIN : float = 55.0
 
@@ -18,7 +19,7 @@ var _story : String
 var _title : String
 var letter_counter : int = 0
 var _last_letter_emitted : bool = false
-var _lower_case_level : bool = false
+var letters_burned : Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,9 +33,7 @@ func _ready():
 	game_over_screen.hide()
 	win_screen.hide()
 	
-	_lower_case_level = GameManager.actual_level%2 == 0
 	level_label.text = "Level: %s" % str(GameManager.actual_level)
-		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -53,7 +52,10 @@ func _input(event: InputEvent):
 				get_tree().reload_current_scene()
 			else:
 				GameManager.load_start_screen()
-			return
+		return
+
+	#print(event)
+	#print(letters_burned)
 
 	if event is InputEventKey and event.is_pressed() and not event.is_echo():
 		var key_unicode = event.keycode
@@ -68,7 +70,7 @@ func _input(event: InputEvent):
 					balloon_container.add_child(ltime)
 					GameManager.PlayerScore = GameManager.PlayerScore + 1
 					score_label.text = str(GameManager.PlayerScore).pad_zeros(5)
-					letter_timer.wait_time = clamp(GameManager.get_wait_time(), 0.05, 2.0)
+					letter_timer.wait_time = clamp(GameManager.get_wait_time(), 0.1, 2.0)
 					break
 
 
@@ -76,25 +78,20 @@ func _on_letter_time_timeout():
 	if _last_letter_emitted:
 		return
 	var new_letter = letter_scene.instantiate()
-	var _charTmp : String = _get_legit_char_from_story()
-	if _charTmp == "END":
+	var letter_data : Dictionary = _get_legit_char_from_story()
+	if letter_data["letter"] == "END":
 		new_letter.queue_free()
 		letter_timer.stop()
 		_last_letter_emitted = true
 		return
-	# Insert here the logic to switch to lower case instead of upper case
-	if _lower_case_level:
-		_charTmp = _charTmp.to_lower()
-	new_letter.text = _charTmp
-	new_letter.position.x = randf_range(MARGIN, vpr.x-MARGIN)
-	new_letter.position.y = -MARGIN
-	new_letter.GAME_OVER.connect(game_over)
-	new_letter.SPEED = GameManager.get_letter_speed() + GameManager.actual_level * 2
 	letter_container.add_child(new_letter)
+	new_letter.set_initial_data(letter_data, MARGIN)
+	new_letter.BURN_LETTER.connect(_on_letter_burned)
 
 
 func game_win() -> void:
 	letter_timer.stop()
+	remove_burned_letters_from_story()
 	win_screen._set_title_and_story(_title, _story)
 	win_screen.show()
 	GameManager.actual_level = GameManager.actual_level + 1
@@ -120,10 +117,41 @@ func make_explosion(pos: Vector2) -> void:
 	add_child(new_explo)
 
 
-func _get_legit_char_from_story() -> String:
+func _get_legit_char_from_story() -> Dictionary:
 	var story_chars = _story.to_upper()
+	var special_chars = {
+		"Ò": "O", "È": "E", "À": "A", "É": "E", "Ì": "I", "Ù": "U"
+	}
 	for i in range(letter_counter, story_chars.length()):
-		if (story_chars[i] >= "A" and story_chars[i] <= "Z"):
-			letter_counter = i + 1 
-			return story_chars[i]
-	return "END"
+		var _char = story_chars[i]
+		if _char in special_chars:
+			_char = special_chars[_char]
+		if (_char >= "A" and _char <= "Z"):
+			letter_counter = i + 1
+			return {"letter": _char, "index": i}
+	return {"letter": "END", "index": story_chars.length()}
+
+
+func _on_letter_burned(letter_pos:int) -> void:
+	if letter_pos in letters_burned:
+		return
+	letters_burned.append(letter_pos)
+	var dissolve_start : float = main_bg.material.get_shader_parameter("dissolve_pct")
+	var dissolve_inc : float = 1.0/(_story.length())
+	var tween : Tween = get_tree().create_tween()
+	tween.tween_method(_set_smooth_dissolve, dissolve_start, dissolve_start+dissolve_inc, 0.1)
+	print(main_bg.material.get_shader_parameter("dissolve_pct"))
+
+
+func remove_burned_letters_from_story() -> void:
+	var new_story = ""
+	for i in range(_story.length()):
+		if i not in letters_burned:
+			new_story += _story[i]
+	_story = new_story
+	letters_burned = []
+
+
+func _set_smooth_dissolve(value: float) -> void:
+	main_bg.material.set_shader_parameter("dissolve_pct", value)
+ 

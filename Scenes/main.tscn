@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://rk1a47bnre2t"]
+[gd_scene load_steps=14 format=3 uid="uid://rk1a47bnre2t"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_fepgo"]
 [ext_resource type="PackedScene" uid="uid://wrfanq0j4cxn" path="res://Scenes/letter.tscn" id="2_qphlm"]
@@ -7,8 +7,21 @@
 [ext_resource type="LabelSettings" uid="uid://de5678chpjhfp" path="res://Assets/Fonts/StandardFont.tres" id="4_l2wg0"]
 [ext_resource type="PackedScene" uid="uid://bstijr8thxqs0" path="res://Assets/vfx/shoot.tscn" id="4_s52cq"]
 [ext_resource type="PackedScene" uid="uid://blc7gqqm3c0xj" path="res://Scenes/game_over_screen.tscn" id="5_f6fbr"]
+[ext_resource type="Shader" path="res://Shaders/dissolve.gdshader" id="5_fao8l"]
 [ext_resource type="PackedScene" uid="uid://da2idyabqrl3b" path="res://Scenes/win_screen.tscn" id="7_wo1di"]
 [ext_resource type="PackedScene" uid="uid://gqltcffyy5te" path="res://Assets/vfx/flame_below.tscn" id="8_3u3ae"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vyt85"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4n0h2"]
+seamless = true
+noise = SubResource("FastNoiseLite_vyt85")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_os7o6"]
+shader = ExtResource("5_fao8l")
+shader_parameter/dissolve_pct = 0.0
+shader_parameter/ask_color = Color(0, 0, 0, 1)
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_4n0h2")
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("letter_timer", "letter_container", "balloon_container", "score_label", "level_label")]
 script = ExtResource("1_fepgo")
@@ -34,6 +47,7 @@ repeat_size = Vector2(1152, 0)
 autoscroll = Vector2(5, 0)
 
 [node name="MainBg" type="Sprite2D" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_os7o6")
 scale = Vector2(1.125, 0.881951)
 texture = ExtResource("3_h3s4m")
 centered = false

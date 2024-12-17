@@ -17,12 +17,12 @@ void fragment()
 	//float dissolve_pct = 0.5*sin(TIME*0.5)+0.5;
 	vec4 original_color = texture(TEXTURE, UV);
 	vec4 noise = texture(noise_tex, UV);
-	
+
 	if (dissolve_pct >= noise.r)
 	{
 		original_color.a = 0.0;
 	}
-	
+
 	COLOR = original_color;
 	//COLOR.a = original_color.a;
 }"
@@ -45,23 +45,6 @@ font_color = Color(0.744792, 0.57508, 0.0659451, 1)
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Animation" id="Animation_bsfso"]
-resource_name = "dissolve"
-length = 5.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:material:shader_parameter/dissolve_pct")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1, 4.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
 [sub_resource type="Animation" id="Animation_pvp5r"]
 length = 0.001
 tracks/0/type = "value"
@@ -75,6 +58,24 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bsfso"]
+resource_name = "dissolve"
+length = 10.0
+loop_mode = 2
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/dissolve_pct")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qvplf"]

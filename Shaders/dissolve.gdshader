@@ -7,15 +7,15 @@ uniform vec4 ask_color : source_color = vec4(0.0, 0.0, 0.0, 1.0);
 void fragment()
 {
 	vec4 original_color = texture(TEXTURE, UV);
-	vec4 final_color = ask_color;
+	vec4 final_color = original_color;
 	final_color.a = original_color.a;
 	vec4 noise = texture(noise_tex, UV);
-	
+
 	if (dissolve_pct >= noise.r)
 	{
 		final_color.a = 0.0;
 	}
-	
+
 	COLOR = final_color;
 	//COLOR.a = original_color.a;
 }
