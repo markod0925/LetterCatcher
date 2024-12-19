@@ -1,9 +1,9 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://syw0pv3f8k76"]
 
-[ext_resource type="FontFile" uid="uid://cbiqukoa57qgb" path="res://Assets/Fonts/Roboto-Bold.ttf" id="1_p36py"]
+[ext_resource type="FontFile" uid="uid://cq2eoifnq63wf" path="res://Assets/Fonts/SourGummy-VariableFontwght.ttf" id="1_g6sr5"]
 
 [resource]
-font = ExtResource("1_p36py")
+font = ExtResource("1_g6sr5")
 font_size = 32
 outline_color = Color(1, 1, 1, 0.337255)
 shadow_size = 3

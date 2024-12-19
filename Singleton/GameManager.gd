@@ -9,9 +9,11 @@ var actual_difficulty : Difficulty = Difficulty.EASY
 enum Difficulty {EASY, MEDIUM, HARD}
 
 # Definisci per ogni livello di difficoltà il tempo di attesa tra un lettera e l'altra, e la velocità di movimento delle lettere
-var difficulty_dict = {Difficulty.EASY: {"wait_time": 2.0, "letter_speed": 10.0},
-					   Difficulty.MEDIUM: {"wait_time": 1.0, "letter_speed": 20.0},
-					   Difficulty.HARD: {"wait_time": 0.5, "letter_speed": 40.0}}
+var difficulty_dict = {
+	Difficulty.EASY: {"wait_time": 2.0, "letter_speed": 10.0, "failure_rate": 1.0/0.25},
+	Difficulty.MEDIUM: {"wait_time": 1.0, "letter_speed": 20.0, "failure_rate": 1.0/0.15},
+	Difficulty.HARD: {"wait_time": 0.5, "letter_speed": 40.0, "failure_rate": 1.0/0.02}
+}
 
 # Stories List
 var stories_dict = {"Cavalieri": "Il giovane cavaliere, tremante di paura, si avvicinò al drago addormentato. Il drago era enorme, con squame luccicanti e artigli affilati. Il cavaliere alzò la spada, ma il drago si svegliò e ruggì. Il cavaliere fuggì via, terrorizzato.", 
@@ -38,11 +40,15 @@ func load_start_screen() -> void:
 
 
 func get_wait_time() -> float:
-	return difficulty_dict[actual_difficulty]["wait_time"]
+	return clamp(difficulty_dict[actual_difficulty]["wait_time"], 0.21, 2.0)
 
 
 func get_letter_speed() -> float:
 	return difficulty_dict[actual_difficulty]["letter_speed"]
+
+
+func get_failure_rate() -> float:
+	return difficulty_dict[actual_difficulty]["failure_rate"]
 
 
 func start_new_game() -> void:

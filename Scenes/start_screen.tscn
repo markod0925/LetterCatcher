@@ -18,7 +18,7 @@ void fragment()
 	vec4 original_color = texture(TEXTURE, UV);
 	vec4 noise = texture(noise_tex, UV);
 
-	if (dissolve_pct >= noise.r)
+	if (dissolve_pct > noise.r)
 	{
 		original_color.a = 0.0;
 	}
@@ -72,10 +72,10 @@ tracks/0/path = NodePath("TextureRect:material:shader_parameter/dissolve_pct")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(2, 8),
+"times": PackedFloat32Array(4, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 1.0]
+"values": [0.0, 0.7]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qvplf"]

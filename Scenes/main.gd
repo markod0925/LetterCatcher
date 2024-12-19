@@ -10,7 +10,9 @@ extends Node2D
 @export var level_label : Label
 @onready var game_over_screen = $Screens/GameOverScreen
 @onready var win_screen = $Screens/WinScreen
+@onready var pause_screen = $Screens/PauseScreen
 @onready var main_bg = $Parallax2D/MainBg
+@onready var book = $Book
 
 const MARGIN : float = 55.0
 
@@ -33,7 +35,11 @@ func _ready():
 	game_over_screen.hide()
 	win_screen.hide()
 	
-	level_label.text = "Level: %s" % str(GameManager.actual_level)
+	level_label.text = "Livello: %s" % str(GameManager.actual_level)
+	
+	letter_timer.wait_time = GameManager.get_wait_time()
+	var tween : Tween = create_tween()
+	tween.tween_property(book, "modulate:a", 1.0, 2.5)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -54,6 +60,11 @@ func _input(event: InputEvent):
 				GameManager.load_start_screen()
 		return
 
+	if event is InputEventKey and event.is_pressed() and not event.is_echo() and event.keycode == KEY_ESCAPE:
+		if pause_screen.visible:
+			resume_game()
+		else:
+			pause_game()
 	#print(event)
 	#print(letters_burned)
 
@@ -70,7 +81,8 @@ func _input(event: InputEvent):
 					balloon_container.add_child(ltime)
 					GameManager.PlayerScore = GameManager.PlayerScore + 1
 					score_label.text = str(GameManager.PlayerScore).pad_zeros(5)
-					letter_timer.wait_time = clamp(GameManager.get_wait_time(), 0.1, 2.0)
+					letter_timer.wait_time = GameManager.get_wait_time()
+					#print("Wait time: %s" % str(letter_timer.wait_time))
 					break
 
 
@@ -101,6 +113,7 @@ func game_over() -> void:
 	letter_timer.stop()
 	for ltime in letter_container.get_children():
 		ltime.set_process(false)
+		ltime.queue_free()
 	set_process(false)
 	game_over_screen.set_highscore()
 	game_over_screen.show()
@@ -111,7 +124,7 @@ func game_over() -> void:
 func make_explosion(pos: Vector2) -> void:
 	var new_laser = laser_scene.instantiate()
 	add_child(new_laser)
-	new_laser.shoot(Vector2(576, 648), pos)
+	new_laser.shoot(Vector2(576, 568), pos)
 	var new_explo = expl_scene.instantiate()
 	new_explo.global_position = pos
 	add_child(new_explo)
@@ -137,9 +150,14 @@ func _on_letter_burned(letter_pos:int) -> void:
 		return
 	letters_burned.append(letter_pos)
 	var dissolve_start : float = main_bg.material.get_shader_parameter("dissolve_pct")
-	var dissolve_inc : float = 1.0/(_story.length())
+	if dissolve_start >= 1.0:
+		game_over()
+		return
+	var dissolve_inc : float = GameManager.get_failure_rate()/(_story.length())
 	var tween : Tween = get_tree().create_tween()
-	tween.tween_method(_set_smooth_dissolve, dissolve_start, dissolve_start+dissolve_inc, 0.1)
+	var dissolve_time : float = clamp(GameManager.get_wait_time() - 0.1, 0.0, 2.0)
+	var dissolve_final : float = clamp(dissolve_start+dissolve_inc, 0.0, 1.0)
+	tween.tween_method(_set_smooth_dissolve, dissolve_start, dissolve_final, dissolve_time) # it must be less than the Timer's wait_time
 	print(main_bg.material.get_shader_parameter("dissolve_pct"))
 
 
@@ -155,3 +173,18 @@ func remove_burned_letters_from_story() -> void:
 func _set_smooth_dissolve(value: float) -> void:
 	main_bg.material.set_shader_parameter("dissolve_pct", value)
  
+
+func pause_game() -> void:
+	letter_timer.stop()
+	for ltime : Label in letter_container.get_children():
+		ltime.set_process(false)
+		ltime.hide()
+	pause_screen.show()
+
+
+func resume_game() -> void:
+	letter_timer.start()
+	for ltime : Label in letter_container.get_children():
+		ltime.set_process(true)
+		ltime.show()
+	pause_screen.hide()

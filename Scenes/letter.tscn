@@ -4,12 +4,12 @@
 [ext_resource type="FontFile" uid="uid://cbiqukoa57qgb" path="res://Assets/Fonts/Roboto-Bold.ttf" id="2_5tvhc"]
 [ext_resource type="PackedScene" uid="uid://shmw5wwufhv0" path="res://Scenes/burning.tscn" id="3_kes0m"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_hy4wm"]
+[sub_resource type="LabelSettings" id="LabelSettings_wpdyr"]
 font = ExtResource("2_5tvhc")
 font_size = 32
 font_color = Color(0.895833, 0.368598, 0.368598, 1)
-outline_color = Color(1, 1, 1, 0.337255)
-shadow_size = 0
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0, 0, 0, 1)
 
 [node name="Letter" type="Label"]
@@ -17,7 +17,7 @@ offset_right = 64.0
 offset_bottom = 38.0
 pivot_offset = Vector2(32, 16)
 text = "A"
-label_settings = SubResource("LabelSettings_hy4wm")
+label_settings = SubResource("LabelSettings_wpdyr")
 horizontal_alignment = 1
 script = ExtResource("1_l27go")
 burning_scene = ExtResource("3_kes0m")

@@ -1,15 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://rk1a47bnre2t"]
+[gd_scene load_steps=16 format=3 uid="uid://rk1a47bnre2t"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_fepgo"]
 [ext_resource type="PackedScene" uid="uid://wrfanq0j4cxn" path="res://Scenes/letter.tscn" id="2_qphlm"]
 [ext_resource type="Texture2D" uid="uid://pksythw4pg0b" path="res://Assets/env/colored_castle.png" id="3_h3s4m"]
 [ext_resource type="PackedScene" uid="uid://bp3nakpjjn6ja" path="res://Scenes/explosion.tscn" id="3_u7id1"]
-[ext_resource type="LabelSettings" uid="uid://de5678chpjhfp" path="res://Assets/Fonts/StandardFont.tres" id="4_l2wg0"]
 [ext_resource type="PackedScene" uid="uid://bstijr8thxqs0" path="res://Assets/vfx/shoot.tscn" id="4_s52cq"]
 [ext_resource type="PackedScene" uid="uid://blc7gqqm3c0xj" path="res://Scenes/game_over_screen.tscn" id="5_f6fbr"]
 [ext_resource type="Shader" path="res://Shaders/dissolve.gdshader" id="5_fao8l"]
+[ext_resource type="LabelSettings" uid="uid://dirnaa0p38ohu" path="res://Assets/Fonts/StandardFont_Gummy.tres" id="7_fjopy"]
 [ext_resource type="PackedScene" uid="uid://da2idyabqrl3b" path="res://Scenes/win_screen.tscn" id="7_wo1di"]
 [ext_resource type="PackedScene" uid="uid://gqltcffyy5te" path="res://Assets/vfx/flame_below.tscn" id="8_3u3ae"]
+[ext_resource type="PackedScene" uid="uid://dktd5ky8ei64m" path="res://Scenes/pause_screen.tscn" id="10_gc2qo"]
+[ext_resource type="Texture2D" uid="uid://3vxbd7djknvm" path="res://Assets/book.png" id="11_xhnq1"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vyt85"]
 
@@ -33,6 +35,19 @@ balloon_container = NodePath("BalloonContainer")
 score_label = NodePath("ScoreLabel")
 laser_scene = ExtResource("4_s52cq")
 level_label = NodePath("LevelLabel")
+metadata/_edit_vertical_guides_ = [576.0]
+metadata/_edit_horizontal_guides_ = [568.0, 72.0]
+
+[node name="BG" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="BG"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="LetterContainer" type="Node" parent="."]
 
@@ -62,7 +77,7 @@ offset_bottom = 590.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 text = "00000"
-label_settings = ExtResource("4_l2wg0")
+label_settings = ExtResource("7_fjopy")
 horizontal_alignment = 2
 
 [node name="LevelLabel" type="Label" parent="."]
@@ -74,8 +89,8 @@ offset_right = 226.0
 offset_bottom = 590.0
 grow_horizontal = 2
 size_flags_horizontal = 4
-text = "Level: 1"
-label_settings = ExtResource("4_l2wg0")
+text = "Livello: 1"
+label_settings = ExtResource("7_fjopy")
 
 [node name="Screens" type="CanvasLayer" parent="."]
 
@@ -85,8 +100,16 @@ visible = false
 [node name="WinScreen" parent="Screens" instance=ExtResource("7_wo1di")]
 visible = false
 
+[node name="PauseScreen" parent="Screens" instance=ExtResource("10_gc2qo")]
+visible = false
+
 [node name="Flames" parent="." instance=ExtResource("8_3u3ae")]
 position = Vector2(576, 648)
 scale = Vector2(0.5, 0.5)
+
+[node name="Book" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(576, 568)
+texture = ExtResource("11_xhnq1")
 
 [connection signal="timeout" from="LetterTime" to="." method="_on_letter_time_timeout"]

@@ -1,14 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://da2idyabqrl3b"]
+[gd_scene load_steps=9 format=3 uid="uid://da2idyabqrl3b"]
 
 [ext_resource type="Script" path="res://Scenes/win_screen.gd" id="1_4cfjq"]
 [ext_resource type="FontFile" uid="uid://cbiqukoa57qgb" path="res://Assets/Fonts/Roboto-Bold.ttf" id="1_kaxq5"]
+[ext_resource type="FontFile" uid="uid://cq2eoifnq63wf" path="res://Assets/Fonts/SourGummy-VariableFontwght.ttf" id="2_e4bcb"]
 [ext_resource type="LabelSettings" uid="uid://de5678chpjhfp" path="res://Assets/Fonts/StandardFont.tres" id="2_wfjii"]
 [ext_resource type="LabelSettings" uid="uid://syw0pv3f8k76" path="res://Assets/Fonts/StandardFont_White.tres" id="4_03xs4"]
+[ext_resource type="LabelSettings" uid="uid://dirnaa0p38ohu" path="res://Assets/Fonts/StandardFont_Gummy.tres" id="5_4akb0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_crkay"]
-font = ExtResource("1_kaxq5")
+font = ExtResource("2_e4bcb")
 font_size = 45
 font_color = Color(0.895833, 0.368598, 0.368598, 1)
+outline_color = Color(1, 1, 1, 0.337255)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ky1gi"]
+font = ExtResource("1_kaxq5")
+font_size = 32
 outline_color = Color(1, 1, 1, 0.337255)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 1)
@@ -75,7 +84,7 @@ label_settings = ExtResource("2_wfjii")
 custom_minimum_size = Vector2(900, 200)
 layout_mode = 2
 text = "La regina era bella e gentile, con i capelli biondi e gli occhi azzurri. La regina amava i fiori e gli animali, e passava le giornate a passeggiare nei giardini del castello. La regina era amata da tutti, per la sua bontà e la sua generosità."
-label_settings = ExtResource("4_03xs4")
+label_settings = SubResource("LabelSettings_ky1gi")
 autowrap_mode = 3
 
 [node name="Label" type="Label" parent="VBoxContainer"]
@@ -88,7 +97,7 @@ alignment = 2
 [node name="ScoreLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Score:"
-label_settings = ExtResource("2_wfjii")
+label_settings = ExtResource("5_4akb0")
 
 [node name="ScoreNumber" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2

@@ -54,6 +54,7 @@ func set_initial_data(letter_data: Dictionary, screen_margin: float):
 	global_position.x = randf_range(vpr.position.x + screen_margin, vpr.end.x-screen_margin)
 	global_position.y = vpr.position.y-screen_margin
 	falling_speed = GameManager.get_letter_speed() + GameManager.actual_level * 2
+	#print("Falling speed: %s" % falling_speed)
 
 
 func fly_away():
