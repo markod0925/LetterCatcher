@@ -158,7 +158,7 @@ func _on_letter_burned(letter_pos:int) -> void:
 	var dissolve_time : float = clamp(GameManager.get_wait_time() - 0.1, 0.0, 2.0)
 	var dissolve_final : float = clamp(dissolve_start+dissolve_inc, 0.0, 1.0)
 	tween.tween_method(_set_smooth_dissolve, dissolve_start, dissolve_final, dissolve_time) # it must be less than the Timer's wait_time
-	print(main_bg.material.get_shader_parameter("dissolve_pct"))
+	#print(main_bg.material.get_shader_parameter("dissolve_pct"))
 
 
 func remove_burned_letters_from_story() -> void:
