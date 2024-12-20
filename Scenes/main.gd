@@ -35,7 +35,10 @@ func _ready():
 	game_over_screen.hide()
 	win_screen.hide()
 	
-	level_label.text = "Livello: %s" % str(GameManager.actual_level)
+	var message : String
+	message = tr("KEY_MAIN_LEVEL")
+	message += ": %s" % str(GameManager.actual_level)
+	level_label.text = message
 	
 	letter_timer.wait_time = GameManager.get_wait_time()
 	var tween : Tween = create_tween()

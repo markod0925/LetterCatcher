@@ -1,0 +1,15 @@
+KEYS,en,it
+KEY_TITLE,"Save the stories","Salva le storie"
+KEY_EASY,Easy,Facile
+KEY_MED,Medium,Intermedio
+KEY_HARD,Hard,Difficile
+KEY_DIFF_LABEL,Difficulty,Difficoltà
+KEY_SCORE_LABEL,Score,Punteggio
+KEY_SPACE_MSG_RESTART,Press SPACE to restart,Premi spazio per ricominciare
+KEY_PAUSE_TITLE,Pause,Pausa
+KEY_PAUSE_MSG,Press ESC to resume,Premi ESC per riprendere
+KEY_RESTART_BUTTON,Restart,Ricomincia
+KEY_WIN_SCREEN_UPMSG,You Win!\nThis is the story you saved:,Hai vinto!\nQuesta è la storia che hai salvato:
+KEY_WIN_SCREEN_SCORE_LABEL,Score:,Punteggio:
+KEY_WIN_SCREEN_SPACE_MSG,Press SPACE to continue,Premi spazio per continuare
+KEY_MAIN_LEVEL,Level,Livello

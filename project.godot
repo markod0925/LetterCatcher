@@ -23,6 +23,11 @@ GameManager="*res://Singleton/GameManager.gd"
 
 window/stretch/mode="canvas_items"
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Assets/translations.en.translation", "res://Assets/translations.it.translation")
+locale/test="TITLE"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
