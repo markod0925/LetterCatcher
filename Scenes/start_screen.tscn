@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddh1ya3eo1r2k"]
+[gd_scene load_steps=17 format=3 uid="uid://ddh1ya3eo1r2k"]
 
 [ext_resource type="Script" path="res://Scenes/start_screen.gd" id="1_krd8m"]
 [ext_resource type="Texture2D" uid="uid://cohjldet1u0br" path="res://Assets/env/MainBG.png" id="1_w78yl"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://qls1k3mlglce" path="res://Assets/Themes/button_theme.tres" id="4_hc1st"]
 [ext_resource type="Texture2D" uid="uid://btg8k7vajp402" path="res://Assets/Flags/flag_gb.svg" id="6_84u72"]
 [ext_resource type="Texture2D" uid="uid://cyanjx4qsuh45" path="res://Assets/Flags/flag_it.svg" id="7_ytpxl"]
+[ext_resource type="Texture2D" uid="uid://cir2mbg0qjh5c" path="res://Assets/Flags/flag_es.svg" id="8_8cnpk"]
 
 [sub_resource type="Shader" id="Shader_l2mqf"]
 code = "shader_type canvas_item;
@@ -220,8 +221,16 @@ texture_normal = ExtResource("7_ytpxl")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="LangEsButton" type="TextureButton" parent="MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+texture_normal = ExtResource("8_8cnpk")
+ignore_texture_size = true
+stretch_mode = 0
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer3/Facile" to="." method="_on_facile_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer4/Intermedio" to="." method="_on_intermedio_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer5/Difficile" to="." method="_on_difficile_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/LangEnButton" to="." method="_on_lang_en_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/LangItButton" to="." method="_on_lang_it_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/LangEsButton" to="." method="_on_lang_es_button_pressed"]

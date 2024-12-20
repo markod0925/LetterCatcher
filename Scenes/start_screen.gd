@@ -2,11 +2,11 @@ extends Control
 
 func _ready():
 	#TranslationServer.set_locale("it")
-	$VBoxContainer/Titolo.text = tr("KEY_TITLE")
+	$VBoxContainer/Titolo.text = tr("KEY_TITLE").to_upper()
 	$VBoxContainer/HBoxContainer/Titolo2.text = tr("KEY_DIFF_LABEL")
-	$VBoxContainer/HBoxContainer/MarginContainer3/Facile.text = tr("KEY_EASY")
-	$VBoxContainer/HBoxContainer/MarginContainer4/Intermedio.text = tr("KEY_MED")
-	$VBoxContainer/HBoxContainer/MarginContainer5/Difficile.text = tr("KEY_HARD")
+	$VBoxContainer/HBoxContainer/MarginContainer3/Facile.text = tr("KEY_EASY").to_upper()
+	$VBoxContainer/HBoxContainer/MarginContainer4/Intermedio.text = tr("KEY_MED").to_upper()
+	$VBoxContainer/HBoxContainer/MarginContainer5/Difficile.text = tr("KEY_HARD").to_upper()
 	
 	
 func _on_facile_pressed():
@@ -31,4 +31,9 @@ func _on_lang_en_button_pressed():
 
 func _on_lang_it_button_pressed():
 	TranslationServer.set_locale("it")
+	GameManager.load_start_screen()
+
+
+func _on_lang_es_button_pressed():
+	TranslationServer.set_locale("es")
 	GameManager.load_start_screen()

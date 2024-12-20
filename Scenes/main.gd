@@ -136,7 +136,8 @@ func make_explosion(pos: Vector2) -> void:
 func _get_legit_char_from_story() -> Dictionary:
 	var story_chars = _story.to_upper()
 	var special_chars = {
-		"Ò": "O", "È": "E", "À": "A", "É": "E", "Ì": "I", "Ù": "U"
+		"Ò": "O", "È": "E", "À": "A", "É": "E", "Ì": "I", "Ù": "U",
+		"Á": "A", "Í": "I", "Ó": "O", "Ú": "U", "Ñ": "N"
 	}
 	for i in range(letter_counter, story_chars.length()):
 		var _char = story_chars[i]

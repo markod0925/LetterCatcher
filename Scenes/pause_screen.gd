@@ -1,8 +1,8 @@
 extends Control
 
 func _ready():
-	$MarginContainer/VBoxContainer/Label.text = tr("KEY_PAUSE_TITLE")
-	$MarginContainer/VBoxContainer/Label2.text = tr("KEY_PAUSE_MSG")
+	$MarginContainer/VBoxContainer/Label.text = tr("KEY_PAUSE_TITLE").to_upper()
+	$MarginContainer/VBoxContainer/Label2.text = tr("KEY_PAUSE_MSG").to_upper()
 	$MarginContainer/VBoxContainer/RestartButton.text = tr("KEY_RESTART_BUTTON")
 	
 	
