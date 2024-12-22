@@ -15,11 +15,10 @@ func _ready():
 	vpr = get_viewport_rect()
 	# Pick a random .png file from the list
 	baloon.hide()
-	var balloon_list = list_balloons()
+	var balloon_list = GameManager.list_balloon_files
 	var random_balloon = balloon_list[randi_range(0, balloon_list.size()-1)]
 	baloon.texture = load("res://Assets/Balloons/%s" % random_balloon)
 	_lower_case_level = GameManager.actual_level%2 == 0
-	#_set_shader_param(0.0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,17 +33,11 @@ func _process(delta):
 		get_tree().get_root().add_child(burning)
 		queue_free()
 
-
-		# Make a tween that modify a shader property adn then call queue_free() as method
-		# var tween = get_tree().create_tween()
-		# tween.tween_method(_set_shader_param, 0.0, 1.0, 2.0)
-		# tween.tween_callback(self.queue_free)
-
 	if position.y < get_viewport_rect().position.y-100:
 		queue_free()
 
 
-# Called whene the letter is created
+# Called when the letter is created
 func set_initial_data(letter_data: Dictionary, screen_margin: float):
 	if _lower_case_level:
 		letter_data["letter"] = letter_data["letter"].to_lower()
@@ -62,23 +55,3 @@ func fly_away():
 	baloon.show()
 	var tween = get_tree().create_tween()
 	tween.tween_property(baloon, "scale", Vector2(0.4, 0.4), 0.3)
-
-
-func list_balloons():
-	var balloons = []
-	var dir = DirAccess.open("res://Assets/Balloons")
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if !dir.current_is_dir() and file_name.ends_with(".png"):
-				balloons.append(file_name)
-			file_name = dir.get_next()
-		dir.list_dir_end()
-	else:
-		print("An error occurred when trying to access the path.")
-	return balloons
-
-
-#func _set_shader_param(value: float) -> void:
-	#self.material.set_shader_parameter("dissolve_pct", value)

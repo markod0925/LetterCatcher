@@ -43,6 +43,9 @@ func _ready():
 	letter_timer.wait_time = GameManager.get_wait_time()
 	var tween : Tween = create_tween()
 	tween.tween_property(book, "modulate:a", 1.0, 2.5)
+	
+	_set_smooth_dissolve(0.0)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -77,7 +80,7 @@ func _input(event: InputEvent):
 			var letter = char(key_unicode).to_upper()
 			for ltime in letter_container.get_children():
 				if ltime.text.to_upper() == letter:
-					make_explosion(ltime.position + Vector2(32, 20))
+					make_explosion_and_shoot(ltime.position + Vector2(32, 20))
 					ltime.fly_away()
 					# Move the letter to BalloonContainer
 					letter_container.remove_child(ltime)
@@ -124,7 +127,7 @@ func game_over() -> void:
 	GameManager.actual_level = 1
 
 
-func make_explosion(pos: Vector2) -> void:
+func make_explosion_and_shoot(pos: Vector2) -> void:
 	var new_laser = laser_scene.instantiate()
 	add_child(new_laser)
 	new_laser.shoot(Vector2(576, 568), pos)

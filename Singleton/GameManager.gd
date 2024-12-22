@@ -1,10 +1,9 @@
 extends Node
 
 var PlayerScore : int = 0
-
 var actual_level : int = 1
-
 var actual_difficulty : Difficulty = Difficulty.EASY
+var list_balloon_files : Array
 
 enum Difficulty {EASY, MEDIUM, HARD}
 
@@ -54,4 +53,21 @@ func get_failure_rate() -> float:
 func start_new_game() -> void:
 	PlayerScore = 0
 	actual_level = 1
+	list_balloon_files = list_balloons()
 	load_main_scene()
+
+
+func list_balloons() -> Array:
+	var balloons = []
+	var dir = DirAccess.open("res://Assets/Balloons")
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if !dir.current_is_dir() and file_name.ends_with(".png"):
+				balloons.append(file_name)
+			file_name = dir.get_next()
+		dir.list_dir_end()
+	else:
+		print("An error occurred when trying to access the path.")
+	return balloons

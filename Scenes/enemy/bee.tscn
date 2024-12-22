@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://dqx81meedn3e6"]
+
+[ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_wxopi"]
+[ext_resource type="Texture2D" uid="uid://cab8woe6d65en" path="res://Assets/enemies/bee/bee.png" id="2_fmvi2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_au1d4"]
+atlas = ExtResource("2_fmvi2")
+region = Rect2(0, 0, 37, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwc3v"]
+atlas = ExtResource("2_fmvi2")
+region = Rect2(37, 0, 37, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gnv2"]
+atlas = ExtResource("2_fmvi2")
+region = Rect2(74, 0, 37, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82wxr"]
+atlas = ExtResource("2_fmvi2")
+region = Rect2(111, 0, 37, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7rxc"]
+atlas = ExtResource("2_fmvi2")
+region = Rect2(148, 0, 37, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibgej"]
+atlas = ExtResource("2_fmvi2")
+region = Rect2(185, 0, 37, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2esg1"]
+atlas = ExtResource("2_fmvi2")
+region = Rect2(222, 0, 37, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nppwj"]
+atlas = ExtResource("2_fmvi2")
+region = Rect2(259, 0, 37, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ets7b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_au1d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwc3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gnv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82wxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7rxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibgej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2esg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nppwj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Bee" instance=ExtResource("1_wxopi")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_ets7b")
+frame_progress = 0.0

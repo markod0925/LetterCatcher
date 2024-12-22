@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://rk1a47bnre2t"]
+[gd_scene load_steps=17 format=3 uid="uid://rk1a47bnre2t"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_fepgo"]
 [ext_resource type="PackedScene" uid="uid://wrfanq0j4cxn" path="res://Scenes/letter.tscn" id="2_qphlm"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bstijr8thxqs0" path="res://Assets/vfx/shoot.tscn" id="4_s52cq"]
 [ext_resource type="PackedScene" uid="uid://blc7gqqm3c0xj" path="res://Scenes/game_over_screen.tscn" id="5_f6fbr"]
 [ext_resource type="Shader" path="res://Shaders/dissolve.gdshader" id="5_fao8l"]
+[ext_resource type="PackedScene" uid="uid://7m0imtafnstf" path="res://Scenes/enemy_manager.tscn" id="5_nc7b8"]
 [ext_resource type="LabelSettings" uid="uid://dirnaa0p38ohu" path="res://Assets/Fonts/StandardFont_Gummy.tres" id="7_fjopy"]
 [ext_resource type="PackedScene" uid="uid://da2idyabqrl3b" path="res://Scenes/win_screen.tscn" id="7_wo1di"]
 [ext_resource type="PackedScene" uid="uid://gqltcffyy5te" path="res://Assets/vfx/flame_below.tscn" id="8_3u3ae"]
@@ -35,8 +36,8 @@ balloon_container = NodePath("BalloonContainer")
 score_label = NodePath("ScoreLabel")
 laser_scene = ExtResource("4_s52cq")
 level_label = NodePath("LevelLabel")
-metadata/_edit_vertical_guides_ = [576.0]
-metadata/_edit_horizontal_guides_ = [568.0, 72.0]
+metadata/_edit_vertical_guides_ = [-136.0]
+metadata/_edit_horizontal_guides_ = [520.0]
 
 [node name="BG" type="CanvasLayer" parent="."]
 layer = -1
@@ -53,6 +54,8 @@ color = Color(0, 0, 0, 1)
 
 [node name="BalloonContainer" type="Node" parent="."]
 
+[node name="EnemyManager" parent="." instance=ExtResource("5_nc7b8")]
+
 [node name="LetterTime" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
@@ -63,6 +66,7 @@ autoscroll = Vector2(5, 0)
 
 [node name="MainBg" type="Sprite2D" parent="Parallax2D"]
 material = SubResource("ShaderMaterial_os7o6")
+position = Vector2(0, -150)
 scale = Vector2(1.125, 0.881951)
 texture = ExtResource("3_h3s4m")
 centered = false
