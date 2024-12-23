@@ -4,6 +4,8 @@ var PlayerScore : int = 0
 var actual_level : int = 1
 var actual_difficulty : Difficulty = Difficulty.EASY
 var list_balloon_files : Array
+var POPUP_SCENE : PackedScene = preload("res://Scenes/popup/popup.tscn")
+var local_lang = "it"
 
 enum Difficulty {EASY, MEDIUM, HARD}
 
@@ -30,6 +32,15 @@ var stories_dict = {"Cavalieri": "Il giovane cavaliere, tremante di paura, si av
 
 
 # Functions list
+
+func add_child_deffered(child_to_add) -> void:
+	get_tree().root.add_child(child_to_add)
+
+
+func call_add_child(child_to_add) -> void:
+	call_deferred("add_child_deffered", child_to_add)
+	
+
 func load_main_scene() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main.tscn")
 
@@ -55,6 +66,17 @@ func start_new_game() -> void:
 	actual_level = 1
 	list_balloon_files = list_balloons()
 	load_main_scene()
+
+
+func update_score(pos: Vector2, value: int) -> void:
+	create_info_popup_scene(pos, "+%s" %value)
+	PlayerScore = PlayerScore + value
+
+
+func create_info_popup_scene(pos: Vector2, info: String) -> void:
+	var new_popup = POPUP_SCENE.instantiate()
+	new_popup.setup(pos, info)
+	call_add_child(new_popup)
 
 
 func list_balloons() -> Array:

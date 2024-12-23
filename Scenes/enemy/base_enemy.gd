@@ -1,10 +1,14 @@
 extends Area2D
 
+signal ENEMY_DIED(pos, prize_for_hit)
+
 var vpr : Rect2
 var falling_speed : float = 0
 var flying_enemy : bool = true
 var lifes : int = 1
 var longitudinal_speed : float = 30.0
+var prize_for_hit : int = 1
+@export var balloon_size : Vector2 = Vector2(0.5, 0.5)
 
 @onready var baloon = $Baloon
 
@@ -27,20 +31,24 @@ func _process(delta):
 	position.x += delta * longitudinal_speed
 
 
-func set_initial_data(_flying_enemy: bool, starting_lifes: int, starting_lon_spd: float):
+func set_initial_data(_flying_enemy: bool, starting_lifes: int, lon_spd: float):
 	global_position.x = -110.0
 	flying_enemy = _flying_enemy
+	prize_for_hit = starting_lifes
 	if flying_enemy:
 		global_position.y = randf_range(50, 360)
+		prize_for_hit = prize_for_hit + 3
 	else:
 		global_position.y = randf_range(430, 520)
+	prize_for_hit = prize_for_hit + int(lon_spd/10.0)
+	longitudinal_speed = lon_spd
 
 
 func fly_away():
 	falling_speed = -20
 	baloon.show()
 	var tween = get_tree().create_tween()
-	tween.tween_property(baloon, "scale", Vector2(0.5, 0.5), 0.3)
+	tween.tween_property(baloon, "scale", balloon_size, 0.3)
 
 
 func _on_laser_hitted(_area):
@@ -49,7 +57,7 @@ func _on_laser_hitted(_area):
 	lifes = lifes - 1
 	if lifes > 0:
 		return
-	longitudinal_speed = 0.0
 	set_deferred("monitoring", false)
+	longitudinal_speed = 0.0
 	fly_away()
-	print("The laser hit me")
+	ENEMY_DIED.emit(global_position, prize_for_hit)

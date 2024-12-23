@@ -116,4 +116,5 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(576, 568)
 texture = ExtResource("11_xhnq1")
 
+[connection signal="UPDATE_SCORE_LABEL" from="EnemyManager" to="." method="_on_update_score_label"]
 [connection signal="timeout" from="LetterTime" to="." method="_on_letter_time_timeout"]

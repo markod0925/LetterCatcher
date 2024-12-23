@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://7m0imtafnstf"]
+[gd_scene load_steps=5 format=3 uid="uid://7m0imtafnstf"]
 
 [ext_resource type="Script" path="res://Scenes/enemy_manager.gd" id="1_8bgmx"]
-[ext_resource type="PackedScene" uid="uid://23u5n6mg7x50" path="res://Scenes/enemy/bat.tscn" id="1_s88kq"]
+[ext_resource type="PackedScene" uid="uid://msf5r7dour7x" path="res://Scenes/enemy/bat.tscn" id="1_s88kq"]
 [ext_resource type="PackedScene" uid="uid://dqx81meedn3e6" path="res://Scenes/enemy/bee.tscn" id="3_0eeyi"]
+[ext_resource type="PackedScene" uid="uid://112xvsxlstg5" path="res://Scenes/enemy/blue_bird.tscn" id="4_dt4p2"]
 
 [node name="EnemyManager" type="Node"]
 script = ExtResource("1_8bgmx")
 bat_scene = ExtResource("1_s88kq")
 bee_scene = ExtResource("3_0eeyi")
-blue_bird = ExtResource("3_0eeyi")
+blue_bird = ExtResource("4_dt4p2")
 bunny = ExtResource("3_0eeyi")
 crab = ExtResource("3_0eeyi")
 eagle = ExtResource("3_0eeyi")

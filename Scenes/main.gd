@@ -81,12 +81,12 @@ func _input(event: InputEvent):
 			for ltime in letter_container.get_children():
 				if ltime.text.to_upper() == letter:
 					make_explosion_and_shoot(ltime.position + Vector2(32, 20))
+					GameManager.update_score(ltime.position + Vector2(32, 20), 1)
 					ltime.fly_away()
 					# Move the letter to BalloonContainer
 					letter_container.remove_child(ltime)
-					balloon_container.add_child(ltime)
-					GameManager.PlayerScore = GameManager.PlayerScore + 1
-					score_label.text = str(GameManager.PlayerScore).pad_zeros(5)
+					balloon_container.add_child(ltime)					
+					_on_update_score_label()
 					letter_timer.wait_time = GameManager.get_wait_time()
 					#print("Wait time: %s" % str(letter_timer.wait_time))
 					break
@@ -195,3 +195,7 @@ func resume_game() -> void:
 		ltime.set_process(true)
 		ltime.show()
 	pause_screen.hide()
+
+
+func _on_update_score_label():
+	score_label.text = str(GameManager.PlayerScore).pad_zeros(5)

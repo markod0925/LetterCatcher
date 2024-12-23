@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://112xvsxlstg5"]
+
+[ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_3n7s7"]
+[ext_resource type="Texture2D" uid="uid://c8v6c2vco2xwo" path="res://Assets/enemies/blue_bird/blue_bird.png" id="2_601oy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2rx6"]
+atlas = ExtResource("2_601oy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsr6y"]
+atlas = ExtResource("2_601oy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jken5"]
+atlas = ExtResource("2_601oy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4wao"]
+atlas = ExtResource("2_601oy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exva1"]
+atlas = ExtResource("2_601oy")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkxjo"]
+atlas = ExtResource("2_601oy")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxnuw"]
+atlas = ExtResource("2_601oy")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bamb"]
+atlas = ExtResource("2_601oy")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2plr"]
+atlas = ExtResource("2_601oy")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ibbd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2rx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsr6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jken5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4wao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exva1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkxjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxnuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bamb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2plr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="BlueBird" instance=ExtResource("1_3n7s7")]
+balloon_size = Vector2(0.35, 0.35)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_1ibbd")
+frame_progress = 0.389927

@@ -18,6 +18,7 @@ config/icon="res://Assets/quest_req_icon_letterblock.png"
 [autoload]
 
 GameManager="*res://Singleton/GameManager.gd"
+DataManager="*res://Singleton/DataManager.gd"
 
 [display]
 

@@ -1,5 +1,7 @@
 extends Node
 
+signal UPDATE_SCORE_LABEL
+
 @export var bat_scene : PackedScene
 @export var bee_scene : PackedScene
 @export var blue_bird : PackedScene
@@ -108,3 +110,9 @@ func _on_timer_timeout():
 		enemies[random_key]["lifes"], 
 		enemies[random_key]["speed"]
 	)
+	new_enemy.ENEMY_DIED.connect(_on_enemy_died)
+
+
+func _on_enemy_died(pos: Vector2, inc_score: int) -> void:
+	GameManager.update_score(pos, inc_score)
+	UPDATE_SCORE_LABEL.emit()
