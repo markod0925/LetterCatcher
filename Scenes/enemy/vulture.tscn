@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://08xrhkd45lt1"]
+
+[ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_1kj42"]
+[ext_resource type="Texture2D" uid="uid://cdbidma05ajxa" path="res://Assets/enemies/vulture/vulture.png" id="2_147tx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tx6wr"]
+atlas = ExtResource("2_147tx")
+region = Rect2(0, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i06le"]
+atlas = ExtResource("2_147tx")
+region = Rect2(39, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsheu"]
+atlas = ExtResource("2_147tx")
+region = Rect2(78, 0, 39, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq7jw"]
+atlas = ExtResource("2_147tx")
+region = Rect2(117, 0, 39, 39)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_td30j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tx6wr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i06le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsheu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq7jw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Vulture" instance=ExtResource("1_1kj42")]
+balloon_size = Vector2(0.35, 0.35)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_td30j")
+frame_progress = 0.928204

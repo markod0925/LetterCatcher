@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://d24ko0ed1dw54"]
+
+[ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_eew2o"]
+[ext_resource type="Texture2D" uid="uid://butefmk4mtkat" path="res://Assets/enemies/bunny/boss_bunny.png" id="2_777wi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhxwc"]
+atlas = ExtResource("2_777wi")
+region = Rect2(850, 0, 34, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0e7x"]
+atlas = ExtResource("2_777wi")
+region = Rect2(816, 0, 34, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmb08"]
+atlas = ExtResource("2_777wi")
+region = Rect2(782, 0, 34, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enx16"]
+atlas = ExtResource("2_777wi")
+region = Rect2(748, 0, 34, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih5bp"]
+atlas = ExtResource("2_777wi")
+region = Rect2(714, 0, 34, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oe4cv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhxwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0e7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmb08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enx16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih5bp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Bunny" instance=ExtResource("1_eew2o")]
+balloon_size = Vector2(0.38, 0.42)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_oe4cv")
+frame_progress = 0.911853

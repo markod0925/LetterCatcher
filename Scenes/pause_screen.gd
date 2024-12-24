@@ -9,4 +9,5 @@ func _ready():
 func _on_restart_button_pressed():
 	GameManager.PlayerScore = 0
 	GameManager.actual_level = 1
+	DataManager.save_game_data()
 	GameManager.load_start_screen()

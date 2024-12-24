@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cg4x6fvgloq46"]
+
+[ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_44fr6"]
+[ext_resource type="Texture2D" uid="uid://bc7iky7ib48bd" path="res://Assets/enemies/frog/frog_sheet.png" id="2_m8oax"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njsff"]
+atlas = ExtResource("2_m8oax")
+region = Rect2(140, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c156i"]
+atlas = ExtResource("2_m8oax")
+region = Rect2(175, 0, 35, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yybyq"]
+atlas = ExtResource("2_m8oax")
+region = Rect2(210, 0, 35, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oi6jn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njsff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c156i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yybyq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Frog" instance=ExtResource("1_44fr6")]
+balloon_size = Vector2(0.47, 0.4)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_oi6jn")
+frame_progress = 0.575739

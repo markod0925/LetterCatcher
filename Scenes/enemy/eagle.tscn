@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://52myoxdbc8o"]
+
+[ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_2m768"]
+[ext_resource type="Texture2D" uid="uid://1og8g1dl62at" path="res://Assets/enemies/eagle/eagle-attack.png" id="2_d0yg5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpddx"]
+atlas = ExtResource("2_d0yg5")
+region = Rect2(0, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx48e"]
+atlas = ExtResource("2_d0yg5")
+region = Rect2(40, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ihba"]
+atlas = ExtResource("2_d0yg5")
+region = Rect2(80, 0, 40, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrpwt"]
+atlas = ExtResource("2_d0yg5")
+region = Rect2(120, 0, 40, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wury1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpddx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx48e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ihba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrpwt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b84ps"]
+radius = 20.0
+
+[node name="Eagle" instance=ExtResource("1_2m768")]
+balloon_size = Vector2(0.41, 0.36)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_wury1")
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_b84ps")

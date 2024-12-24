@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://bkonuwq37gxjx"]
+
+[ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_yb70g"]
+[ext_resource type="Texture2D" uid="uid://cpl1u14rhollm" path="res://Assets/enemies/crab/crab-walk.png" id="2_6gfip"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ese6u"]
+atlas = ExtResource("2_6gfip")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivqdu"]
+atlas = ExtResource("2_6gfip")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fggyf"]
+atlas = ExtResource("2_6gfip")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17kju"]
+atlas = ExtResource("2_6gfip")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjip3"]
+atlas = ExtResource("2_6gfip")
+region = Rect2(192, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjy7p"]
+atlas = ExtResource("2_6gfip")
+region = Rect2(240, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iauw6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ese6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivqdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fggyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17kju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjip3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjy7p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hidrm"]
+radius = 20.0
+
+[node name="Crab" instance=ExtResource("1_yb70g")]
+balloon_size = Vector2(0.42, 0.35)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_iauw6")
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_hidrm")

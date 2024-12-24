@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddh1ya3eo1r2k"]
+[gd_scene load_steps=18 format=3 uid="uid://ddh1ya3eo1r2k"]
 
 [ext_resource type="Script" path="res://Scenes/start_screen.gd" id="1_krd8m"]
 [ext_resource type="Texture2D" uid="uid://cohjldet1u0br" path="res://Assets/env/MainBG.png" id="1_w78yl"]
 [ext_resource type="LabelSettings" uid="uid://dkxqwnbtyd37q" path="res://Assets/Fonts/TitleFontBigBlue.tres" id="2_n0pen"]
 [ext_resource type="FontFile" uid="uid://cq2eoifnq63wf" path="res://Assets/Fonts/SourGummy-VariableFontwght.ttf" id="3_dxkwu"]
 [ext_resource type="Theme" uid="uid://qls1k3mlglce" path="res://Assets/Themes/button_theme.tres" id="4_hc1st"]
+[ext_resource type="LabelSettings" uid="uid://dirnaa0p38ohu" path="res://Assets/Fonts/StandardFont_Gummy.tres" id="6_4cyh3"]
 [ext_resource type="Texture2D" uid="uid://btg8k7vajp402" path="res://Assets/Flags/flag_gb.svg" id="6_84u72"]
 [ext_resource type="Texture2D" uid="uid://cyanjx4qsuh45" path="res://Assets/Flags/flag_it.svg" id="7_ytpxl"]
 [ext_resource type="Texture2D" uid="uid://cir2mbg0qjh5c" path="res://Assets/Flags/flag_es.svg" id="8_8cnpk"]
@@ -146,7 +147,10 @@ custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Titolo2" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Titolo2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Difficoltà:"
 label_settings = SubResource("LabelSettings_6jjqe")
@@ -157,9 +161,19 @@ layout_mode = 2
 theme = ExtResource("4_hc1st")
 theme_override_constants/margin_left = 20
 
-[node name="Facile" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+
+[node name="Easy" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer"]
 layout_mode = 2
 text = "FACILE"
+
+[node name="EasyRecord" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+text = "00000"
+label_settings = ExtResource("6_4cyh3")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(160, 45)
@@ -167,9 +181,19 @@ layout_mode = 2
 theme = ExtResource("4_hc1st")
 theme_override_constants/margin_left = 20
 
-[node name="Intermedio" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer4"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer4"]
+layout_mode = 2
+
+[node name="Medium" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer4/VBoxContainer"]
 layout_mode = 2
 text = "INTERMEDIO"
+
+[node name="MidRecord" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer4/VBoxContainer"]
+layout_mode = 2
+text = "00000"
+label_settings = ExtResource("6_4cyh3")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer5" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(160, 45)
@@ -177,9 +201,19 @@ layout_mode = 2
 theme = ExtResource("4_hc1st")
 theme_override_constants/margin_left = 20
 
-[node name="Difficile" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer5"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer5"]
+layout_mode = 2
+
+[node name="Hard" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer5/VBoxContainer"]
 layout_mode = 2
 text = "DIFFICILE"
+
+[node name="HardRecord" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer5/VBoxContainer"]
+layout_mode = 2
+text = "00000"
+label_settings = ExtResource("6_4cyh3")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -228,9 +262,9 @@ texture_normal = ExtResource("8_8cnpk")
 ignore_texture_size = true
 stretch_mode = 0
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer3/Facile" to="." method="_on_facile_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer4/Intermedio" to="." method="_on_intermedio_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer5/Difficile" to="." method="_on_difficile_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer4/VBoxContainer/Medium" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer5/VBoxContainer/Hard" to="." method="_on_hard_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/LangEnButton" to="." method="_on_lang_en_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/LangItButton" to="." method="_on_lang_it_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/LangEsButton" to="." method="_on_lang_es_button_pressed"]

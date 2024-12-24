@@ -68,6 +68,7 @@ animations = [{
 }]
 
 [node name="Bee" instance=ExtResource("1_wxopi")]
+balloon_size = Vector2(0.35, 0.3)
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_ets7b")
