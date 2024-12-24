@@ -94,6 +94,7 @@ func _ready():
 	for enemy in enemies:
 		if enemies[enemy]["from_level"] <= GameManager.actual_level:
 			available_enemies.append(enemy)
+	$Timer.wait_time = GameManager.get_spawn_time()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -11,9 +11,9 @@ enum Difficulty {EASY, MEDIUM, HARD}
 
 # Definisci per ogni livello di difficoltà il tempo di attesa tra un lettera e l'altra, e la velocità di movimento delle lettere
 var difficulty_dict = {
-	Difficulty.EASY: {"wait_time": 2.0, "letter_speed": 10.0, "failure_rate": 1.0/0.25},
-	Difficulty.MEDIUM: {"wait_time": 1.0, "letter_speed": 20.0, "failure_rate": 1.0/0.15},
-	Difficulty.HARD: {"wait_time": 0.5, "letter_speed": 40.0, "failure_rate": 1.0/0.02}
+	Difficulty.EASY: {"wait_time": 2.0, "letter_speed": 10.0, "failure_rate": 1.0/0.25, "spawn_enemies_rate": 5.0},
+	Difficulty.MEDIUM: {"wait_time": 1.0, "letter_speed": 20.0, "failure_rate": 1.0/0.15, "spawn_enemies_rate": 2.5},
+	Difficulty.HARD: {"wait_time": 0.5, "letter_speed": 40.0, "failure_rate": 1.0/0.02, "spawn_enemies_rate": 1.5}
 }
 
 # Stories List
@@ -51,6 +51,10 @@ func load_start_screen() -> void:
 
 func get_wait_time() -> float:
 	return clamp(difficulty_dict[actual_difficulty]["wait_time"], 0.21, 2.0)
+
+
+func get_spawn_time() -> float:
+	return clamp(difficulty_dict[actual_difficulty]["spawn_enemies_rate"], 1.0, 10.0)
 
 
 func get_letter_speed() -> float:

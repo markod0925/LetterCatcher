@@ -47,6 +47,8 @@ func _ready():
 	_set_smooth_dissolve(0.0)
 
 
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if game_over_screen.visible or win_screen.visible:
@@ -112,6 +114,7 @@ func game_win() -> void:
 	remove_burned_letters_from_story()
 	win_screen._set_title_and_story(_title, _story)
 	win_screen.show()
+	DataManager.save_game_data()
 	GameManager.actual_level = GameManager.actual_level + 1
 
 
@@ -125,6 +128,7 @@ func game_over() -> void:
 	game_over_screen.show()
 	GameManager.PlayerScore = 0
 	GameManager.actual_level = 1
+	DataManager.save_game_data()
 
 
 func make_explosion_and_shoot(pos: Vector2) -> void:
