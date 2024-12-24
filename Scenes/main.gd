@@ -1,5 +1,12 @@
 extends Node2D
 
+# TODO:
+	#Add boss enemy after 5 levels for easy
+	#Add boss enemy after 10 levels for medium
+	#Add boss enemy after 15 levels for hard
+	#Add a final win screen
+	#Refactore the GameManager class in order to load the stories from a JSON file, based on the selected language
+
 @export var letter_scene : PackedScene
 @export var expl_scene : PackedScene
 @export var letter_timer : Timer
