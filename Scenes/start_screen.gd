@@ -1,7 +1,6 @@
 extends Control
 
 func _ready():
-	#TranslationServer.set_locale("it")
 	DataManager.load_game_data()
 	$VBoxContainer/Titolo.text = tr("KEY_TITLE").to_upper()
 	$VBoxContainer/HBoxContainer/VBoxContainer/Titolo2.text = tr("KEY_DIFF_LABEL")
@@ -11,6 +10,7 @@ func _ready():
 	$VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer/EasyRecord.text = str(DataManager.high_score[str(GameManager.Difficulty.EASY)]).pad_zeros(5)
 	$VBoxContainer/HBoxContainer/MarginContainer4/VBoxContainer/MidRecord.text = str(DataManager.high_score[str(GameManager.Difficulty.MEDIUM)]).pad_zeros(5)
 	$VBoxContainer/HBoxContainer/MarginContainer5/VBoxContainer/HardRecord.text = str(DataManager.high_score[str(GameManager.Difficulty.HARD)]).pad_zeros(5)
+	$MarginContainer2/VBoxContainer2/ResetButton.text = tr("KEY_RESET").to_upper()
 	
 func _on_easy_pressed():
 	GameManager.actual_difficulty = GameManager.Difficulty.EASY
@@ -27,19 +27,31 @@ func _on_hard_pressed():
 	GameManager.start_new_game()
 
 
-func _on_lang_en_button_pressed():
-	TranslationServer.set_locale("en")
+func _save_and_load() -> void:
 	DataManager.save_game_data()
 	GameManager.load_start_screen()
 
+
+func _on_lang_en_button_pressed():
+	TranslationServer.set_locale("en")
+	_save_and_load()
 
 func _on_lang_it_button_pressed():
 	TranslationServer.set_locale("it")
-	DataManager.save_game_data()
-	GameManager.load_start_screen()
-
+	_save_and_load()
 
 func _on_lang_es_button_pressed():
 	TranslationServer.set_locale("es")
-	DataManager.save_game_data()
-	GameManager.load_start_screen()
+	_save_and_load()
+
+func _on_lang_de_button_pressed():
+	TranslationServer.set_locale("de")
+	_save_and_load()
+
+func _on_lang_fr_button_pressed():
+	TranslationServer.set_locale("fr")
+	_save_and_load()
+
+func _on_reset_button_pressed():
+	DataManager.reset_game_data()
+	_save_and_load()

@@ -1,6 +1,8 @@
 extends Node
 
 const DATA_FILE: String = "user://GAMEDATA.dat"
+const STORIES_FILE: String = "res://stories.dat"
+var stories_dict : Dictionary = {}
 
 var high_score : Dictionary = {
 	str(GameManager.Difficulty.EASY) : 0,
@@ -10,6 +12,16 @@ var high_score : Dictionary = {
 
 func _ready():
 	load_game_data()
+	load_stories_data()
+
+
+func reset_game_data() -> void:
+	high_score = {
+		str(GameManager.Difficulty.EASY) : 0,
+		str(GameManager.Difficulty.MEDIUM) : 0,
+		str(GameManager.Difficulty.HARD) : 0,
+	}
+	save_game_data()
 
 
 func save_game_data() -> void:
@@ -18,11 +30,6 @@ func save_game_data() -> void:
 		"LOCAL_KEY": TranslationServer.get_locale(),
 	}
 	data["HIGH_SCORE"] = high_score
-	#var _unlvldata : Dictionary
-	#for lv in range(1, GameManager.TOTAL_LEVELS + 1):
-		#_unlvldata["level_%s" %lv] = _unlocked_level[lv-1]
-	#data[UNLOCK_KEY] = _unlvldata
-	
 	file.store_string(JSON.stringify(data))
 
 
@@ -41,11 +48,30 @@ func load_game_data() -> void:
 
 	if "HIGH_SCORE" in data:
 		high_score = data["HIGH_SCORE"]
-	#print(high_score)
+
+
+func load_stories_data() -> void:
+	if !FileAccess.file_exists(STORIES_FILE):
+		print("No stories file found.")
+		return
 		
-	#if UNLOCK_KEY in data:
-		#for lv in range(1, GameManager.TOTAL_LEVELS + 1):
-			#if data[UNLOCK_KEY]["level_%s" %lv] == null: 
-				#_unlocked_level[lv-1] = false
-			#else:
-				#_unlocked_level[lv-1] = data[UNLOCK_KEY]["level_%s" %lv]
+	var file = FileAccess.open(STORIES_FILE, FileAccess.READ)
+	var data = JSON.parse_string(file.get_as_text()) 
+	
+	if data == null:
+		print("Error parsing stories file.")
+		return
+	
+	for lang_key in data.keys():
+		for diff_key in data[lang_key].keys():
+			if diff_key == "EASY":
+				data[lang_key][GameManager.Difficulty.EASY] = data[lang_key][diff_key]
+				data[lang_key].erase(diff_key)
+			elif diff_key == "MEDIUM":
+				data[lang_key][GameManager.Difficulty.MEDIUM] = data[lang_key][diff_key]
+				data[lang_key].erase(diff_key)
+			elif diff_key == "HARD":
+				data[lang_key][GameManager.Difficulty.HARD] = data[lang_key][diff_key]
+				data[lang_key].erase(diff_key)
+
+	stories_dict = data

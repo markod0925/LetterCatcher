@@ -1,0 +1,152 @@
+[gd_scene load_steps=34 format=3 uid="uid://ogbdgru40no0"]
+
+[ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_u37tp"]
+[ext_resource type="Texture2D" uid="uid://hq182r2bwio7" path="res://Assets/enemies/boss/skeleton-animation_00.png" id="2_86cmy"]
+[ext_resource type="Texture2D" uid="uid://8u80jknoa46x" path="res://Assets/enemies/boss/skeleton-animation_01.png" id="3_agpdt"]
+[ext_resource type="Texture2D" uid="uid://cdqlyqww7vkfi" path="res://Assets/enemies/boss/skeleton-animation_02.png" id="4_2aerm"]
+[ext_resource type="Texture2D" uid="uid://2ahxt4yaw6he" path="res://Assets/enemies/boss/skeleton-animation_03.png" id="5_5hv2l"]
+[ext_resource type="Texture2D" uid="uid://deudomb5ynkky" path="res://Assets/enemies/boss/skeleton-animation_04.png" id="6_w1w24"]
+[ext_resource type="Texture2D" uid="uid://xcqvynxo2ps8" path="res://Assets/enemies/boss/skeleton-animation_05.png" id="7_2t8ok"]
+[ext_resource type="Texture2D" uid="uid://b5rk8v1cirrdw" path="res://Assets/enemies/boss/skeleton-animation_06.png" id="8_sh1ot"]
+[ext_resource type="Texture2D" uid="uid://dxurs7v6pm34w" path="res://Assets/enemies/boss/skeleton-animation_07.png" id="9_rj5u4"]
+[ext_resource type="Texture2D" uid="uid://dqklqdul0kmwx" path="res://Assets/enemies/boss/skeleton-animation_08.png" id="10_nstry"]
+[ext_resource type="Texture2D" uid="uid://droryybk1lwrp" path="res://Assets/enemies/boss/skeleton-animation_09.png" id="11_8ieal"]
+[ext_resource type="Texture2D" uid="uid://c4tnxku0d6p0g" path="res://Assets/enemies/boss/skeleton-animation_10.png" id="12_d17ob"]
+[ext_resource type="Texture2D" uid="uid://b0oqbwtyjjfaq" path="res://Assets/enemies/boss/skeleton-animation_11.png" id="13_6c605"]
+[ext_resource type="Texture2D" uid="uid://urs81q6e1syg" path="res://Assets/enemies/boss/skeleton-animation_12.png" id="14_16xxy"]
+[ext_resource type="Texture2D" uid="uid://d1poo8qscg1ps" path="res://Assets/enemies/boss/skeleton-animation_13.png" id="15_qrnv8"]
+[ext_resource type="Texture2D" uid="uid://rsef3eba8xs2" path="res://Assets/enemies/boss/skeleton-animation_14.png" id="16_r28yf"]
+[ext_resource type="Texture2D" uid="uid://d34y7ok8yxg36" path="res://Assets/enemies/boss/skeleton-animation_15.png" id="17_d2btb"]
+[ext_resource type="Texture2D" uid="uid://b4fgkd4hqtp03" path="res://Assets/enemies/boss/skeleton-animation_16.png" id="18_0facf"]
+[ext_resource type="Texture2D" uid="uid://cfa3a351r6qhy" path="res://Assets/enemies/boss/skeleton-animation_17.png" id="19_30ymn"]
+[ext_resource type="Texture2D" uid="uid://dwxcf04ypro5" path="res://Assets/enemies/boss/skeleton-animation_18.png" id="20_aatyt"]
+[ext_resource type="Texture2D" uid="uid://cbkfljpx1rnux" path="res://Assets/enemies/boss/skeleton-animation_19.png" id="21_21u0d"]
+[ext_resource type="Texture2D" uid="uid://hvrasggqqyfl" path="res://Assets/enemies/boss/skeleton-animation_20.png" id="22_ij7rc"]
+[ext_resource type="Texture2D" uid="uid://fy1qpwdybuo" path="res://Assets/enemies/boss/skeleton-animation_21.png" id="23_t1lwy"]
+[ext_resource type="Texture2D" uid="uid://ywgkrw1r3by7" path="res://Assets/enemies/boss/skeleton-animation_22.png" id="24_pxrhh"]
+[ext_resource type="Texture2D" uid="uid://0rx32qb3i07m" path="res://Assets/enemies/boss/skeleton-animation_23.png" id="25_bqf3x"]
+[ext_resource type="Texture2D" uid="uid://cq37u34cltsgl" path="res://Assets/enemies/boss/skeleton-animation_24.png" id="26_13wc3"]
+[ext_resource type="Texture2D" uid="uid://bkwsm7id7a3fi" path="res://Assets/enemies/boss/skeleton-animation_25.png" id="27_x0n4l"]
+[ext_resource type="Texture2D" uid="uid://bwu0fmugcdmx7" path="res://Assets/enemies/boss/skeleton-animation_26.png" id="28_x7vec"]
+[ext_resource type="Texture2D" uid="uid://bil8k782k0ynf" path="res://Assets/enemies/boss/skeleton-animation_27.png" id="29_pb6jt"]
+[ext_resource type="Texture2D" uid="uid://sspgroha8kq2" path="res://Assets/enemies/boss/skeleton-animation_28.png" id="30_tpfna"]
+[ext_resource type="Texture2D" uid="uid://vdw4eu0defbk" path="res://Assets/enemies/boss/skeleton-animation_29.png" id="31_uhf1s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_83j0l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_86cmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_agpdt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2aerm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5hv2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w1w24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2t8ok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sh1ot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rj5u4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nstry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8ieal")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_d17ob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6c605")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_16xxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qrnv8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_r28yf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_d2btb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_0facf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_30ymn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_aatyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_21u0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ij7rc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_t1lwy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_pxrhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_bqf3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_13wc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_x0n4l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_x7vec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_pb6jt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_tpfna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_uhf1s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ka2gq"]
+radius = 110.0
+height = 520.0
+
+[node name="Boss" instance=ExtResource("1_u37tp")]
+scale = Vector2(0.7, 0.7)
+balloon_size = Vector2(4.5, 5)
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_83j0l")
+frame_progress = 0.010285
+offset = Vector2(0, -250)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -250)
+rotation = 0.230383
+shape = SubResource("CapsuleShape2D_ka2gq")
+
+[node name="Baloon" parent="." index="2"]
+offset = Vector2(0, -33)

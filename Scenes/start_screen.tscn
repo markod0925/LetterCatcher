@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddh1ya3eo1r2k"]
+[gd_scene load_steps=20 format=3 uid="uid://ddh1ya3eo1r2k"]
 
 [ext_resource type="Script" path="res://Scenes/start_screen.gd" id="1_krd8m"]
 [ext_resource type="Texture2D" uid="uid://cohjldet1u0br" path="res://Assets/env/MainBG.png" id="1_w78yl"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://btg8k7vajp402" path="res://Assets/Flags/flag_gb.svg" id="6_84u72"]
 [ext_resource type="Texture2D" uid="uid://cyanjx4qsuh45" path="res://Assets/Flags/flag_it.svg" id="7_ytpxl"]
 [ext_resource type="Texture2D" uid="uid://cir2mbg0qjh5c" path="res://Assets/Flags/flag_es.svg" id="8_8cnpk"]
+[ext_resource type="Texture2D" uid="uid://d0ui0dryx4c8y" path="res://Assets/Flags/flag_de.svg" id="10_n8l8w"]
+[ext_resource type="Texture2D" uid="uid://bktofya4jqcvj" path="res://Assets/Flags/flag_fr.svg" id="11_ivl53"]
 
 [sub_resource type="Shader" id="Shader_l2mqf"]
 code = "shader_type canvas_item;
@@ -66,7 +68,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_bsfso"]
 resource_name = "dissolve"
-length = 10.0
+length = 15.0
 loop_mode = 2
 step = 1.0
 tracks/0/type = "value"
@@ -79,7 +81,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(4, 10),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 0.7]
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qvplf"]
@@ -126,6 +128,7 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
+alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
@@ -146,6 +149,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 4
+alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -262,9 +266,48 @@ texture_normal = ExtResource("8_8cnpk")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="LangDeButton" type="TextureButton" parent="MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+texture_normal = ExtResource("10_n8l8w")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="LangFrButton" type="TextureButton" parent="MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(70, 50)
+layout_mode = 2
+texture_normal = ExtResource("11_ivl53")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_right = 410.0
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ResetButton" type="Button" parent="MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("4_hc1st")
+text = "Resetta i punteggi"
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer/Easy" to="." method="_on_easy_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer4/VBoxContainer/Medium" to="." method="_on_medium_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer5/VBoxContainer/Hard" to="." method="_on_hard_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/LangEnButton" to="." method="_on_lang_en_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/LangItButton" to="." method="_on_lang_it_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/LangEsButton" to="." method="_on_lang_es_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/LangDeButton" to="." method="_on_lang_de_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/LangFrButton" to="." method="_on_lang_fr_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer2/ResetButton" to="." method="_on_reset_button_pressed"]

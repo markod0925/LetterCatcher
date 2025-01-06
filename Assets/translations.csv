@@ -1,15 +1,17 @@
-KEYS,en,it,es
-KEY_TITLE,"Save the stories","Salva le storie","Salva le historias"
-KEY_EASY,Easy,Facile,Fácil
-KEY_MED,Medium,Intermedio,Medio
-KEY_HARD,Hard,Difficile,Difícil
-KEY_DIFF_LABEL,Difficulty,Difficoltà,Dificultad
-KEY_SCORE_LABEL,Score,Punteggio,Puntuación
-KEY_SPACE_MSG_RESTART,Press SPACE to restart,Premi SPAZIO per ricominciare,Pulsa ESPACIO para reiniciar
-KEY_PAUSE_TITLE,Pause,Pausa,Pausa
-KEY_PAUSE_MSG,Press ESC to resume,Premi ESC per riprendere,Pulsa ESC para reanudar
-KEY_RESTART_BUTTON,Restart,Ricomincia,Reiniciar
-KEY_WIN_SCREEN_UPMSG,You Win!\nThis is the story you saved:,Hai vinto!\nQuesta è la storia che hai salvato:,¡Has ganado!\nEsta es la historia que has salvado:
-KEY_WIN_SCREEN_SCORE_LABEL,Score:,Punteggio:,Puntuación:
-KEY_WIN_SCREEN_SPACE_MSG,Press SPACE to continue,Premi spazio per continuare,Pulsa ESPACIO para continuar
-KEY_MAIN_LEVEL,Level,Livello,Nivel
+KEYS,en,it,es,fr,de
+KEY_TITLE,"Save the stories","Salva le storie","Salva le historias","Sauvegarder les histoires","Geschichten speichern"
+KEY_EASY,Easy,Facile,Fácil,Facile,Leicht
+KEY_MED,Medium,Intermedio,Medio,Moyen,Mittel
+KEY_HARD,Hard,Difficile,Difícil,Difficile,Schwer
+KEY_DIFF_LABEL,Difficulty,Difficoltà,Dificultad,Difficulté,Schwierigkeit
+KEY_SCORE_LABEL,Score,Punteggio,Puntuación,Score,Punktzahl
+KEY_SPACE_MSG_RESTART,Press SPACE to restart,Premi SPAZIO per ricominciare,Pulsa ESPACIO para reiniciar,Appuyez sur ESPACE pour redémarrer,Drücken Sie die LEERTASTE um neu zu starten
+KEY_PAUSE_TITLE,Pause,Pausa,Pausa,Pause,Pause
+KEY_PAUSE_MSG,Press ESC to resume,Premi ESC per riprendere,Pulsa ESC para reanudar,Appuyez sur ESC pour reprendre,Drücken Sie ESC um fortzufahren
+KEY_RESTART_BUTTON,Restart,Ricomincia,Reiniciar,Redémarrer,Neustart
+KEY_WIN_SCREEN_UPMSG,You Win!\nThis is the story you saved:,Hai vinto!\nQuesta è la storia che hai salvato:,¡Has ganado!\nEsta es la historia que has salvado:,Vous avez gagné!\nVoici l'histoire que vous avez sauvée:,Du hast gewonnen!\nDas ist die Geschichte die du gespeichert hast:
+KEY_WIN_SCREEN_SCORE_LABEL,Score:,Punteggio:,Puntuación:,Score:,Punktzahl:
+KEY_WIN_SCREEN_SPACE_MSG,Press SPACE to continue,Premi spazio per continuare,Pulsa ESPACIO para continuar,Appuyez sur ESPACE pour continuer,Drücken Sie die LEERTASTE um fortzufahren
+KEY_MAIN_LEVEL,Level,Livello,Nivel,Niveau,Level
+KEY_WIN_SCREEN_UPMSG_BOSS,You have saved all the stories!\nYou are the best!,Hai salvato tutte le storie!\nSei il migliore!,¡Has salvado todas las historias!\n¡Eres el mejor!,Vous avez sauvé toutes les histoires!\nVous êtes le meilleur!,Du hast alle Geschichten gespeichert!\nDu bist der Beste!
+KEY_RESET,Reset the scores,Azzera i punteggi,Reiniciar los puntajes,Réinitialiser les scores,Punkte zurücksetzen

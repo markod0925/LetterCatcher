@@ -1,11 +1,7 @@
 extends Node2D
 
 # TODO:
-	#Add boss enemy after 5 levels for easy
-	#Add boss enemy after 10 levels for medium
-	#Add boss enemy after 15 levels for hard
-	#Add a final win screen
-	#Refactore the GameManager class in order to load the stories from a JSON file, based on the selected language
+	#Add sounds and Music!!
 
 @export var letter_scene : PackedScene
 @export var expl_scene : PackedScene
@@ -34,9 +30,9 @@ var letters_burned : Array = []
 func _ready():
 	vpr = get_viewport_rect().end
 	# Select a random story
-	var _rand_number = randi_range(0, GameManager.stories_dict.size()-1)
-	_title = GameManager.stories_dict.keys()[_rand_number]
-	_story = GameManager.stories_dict[_title]
+	var _story_dict = GameManager.get_story()
+	_title = _story_dict["title"]
+	_story = _story_dict["text"]
 	
 	score_label.text = str(GameManager.PlayerScore).pad_zeros(5)
 	game_over_screen.hide()
@@ -44,7 +40,7 @@ func _ready():
 	
 	var message : String
 	message = tr("KEY_MAIN_LEVEL")
-	message += ": %s" % str(GameManager.actual_level)
+	message += ": %s/%s" % [str(GameManager.actual_level), str(GameManager.difficulty_dict[GameManager.actual_difficulty]["boss_level"])]
 	level_label.text = message
 	
 	letter_timer.wait_time = GameManager.get_wait_time()
@@ -54,10 +50,12 @@ func _ready():
 	_set_smooth_dissolve(0.0)
 
 
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if _title == GameManager.ERROR_CODE:
+		GameManager.load_start_screen()
+		return
+	
 	if game_over_screen.visible or win_screen.visible:
 		return
 	if _last_letter_emitted and letter_container.get_child_count() == 0:
@@ -70,7 +68,7 @@ func _input(event: InputEvent):
 	if event is InputEventKey and event.is_pressed() and not event.is_echo() and (game_over_screen.visible or win_screen.visible):
 		if event.keycode == KEY_SPACE:
 			if win_screen.visible:
-				get_tree().reload_current_scene()
+				GameManager.load_new_level()
 			else:
 				GameManager.load_start_screen()
 		return
@@ -121,8 +119,6 @@ func game_win() -> void:
 	remove_burned_letters_from_story()
 	win_screen._set_title_and_story(_title, _story)
 	win_screen.show()
-	DataManager.save_game_data()
-	GameManager.actual_level = GameManager.actual_level + 1
 
 
 func game_over() -> void:
@@ -151,7 +147,9 @@ func _get_legit_char_from_story() -> Dictionary:
 	var story_chars = _story.to_upper()
 	var special_chars = {
 		"Ò": "O", "È": "E", "À": "A", "É": "E", "Ì": "I", "Ù": "U",
-		"Á": "A", "Í": "I", "Ó": "O", "Ú": "U", "Ñ": "N"
+		"Á": "A", "Í": "I", "Ó": "O", "Ú": "U", "Ñ": "N",
+		"Ä": "A", "Ö": "O", "Ü": "U", "ß": "SS",  # German special characters
+		"Â": "A", "Ê": "E", "Î": "I", "Ô": "O", "Û": "U", "Ç": "C"  # French special characters
 	}
 	for i in range(letter_counter, story_chars.length()):
 		var _char = story_chars[i]

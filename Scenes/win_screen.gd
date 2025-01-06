@@ -14,3 +14,9 @@ func _set_title_and_story(title: String, story: String) -> void:
 	_title.text = title
 	_story.text = story
 	_score_number.text = str(GameManager.PlayerScore).pad_zeros(5)
+	if GameManager.Boss_activated:
+		$UpMsg.text = tr("KEY_WIN_SCREEN_UPMSG_BOSS").to_upper()
+		$SpaceMsg.text = tr("KEY_SPACE_MSG_RESTART").to_upper()
+	else:
+		$UpMsg.text = tr("KEY_WIN_SCREEN_UPMSG").to_upper()
+		$SpaceMsg.text = tr("KEY_WIN_SCREEN_SPACE_MSG").to_upper()

@@ -36,8 +36,6 @@ balloon_container = NodePath("BalloonContainer")
 score_label = NodePath("ScoreLabel")
 laser_scene = ExtResource("4_s52cq")
 level_label = NodePath("LevelLabel")
-metadata/_edit_vertical_guides_ = [-136.0]
-metadata/_edit_horizontal_guides_ = [520.0]
 
 [node name="BG" type="CanvasLayer" parent="."]
 layer = -1
@@ -61,6 +59,7 @@ wait_time = 2.0
 autostart = true
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
+texture_filter = 2
 repeat_size = Vector2(1152, 0)
 autoscroll = Vector2(5, 0)
 

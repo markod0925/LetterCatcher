@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://7m0imtafnstf"]
+[gd_scene load_steps=13 format=3 uid="uid://7m0imtafnstf"]
 
 [ext_resource type="Script" path="res://Scenes/enemy_manager.gd" id="1_8bgmx"]
 [ext_resource type="PackedScene" uid="uid://msf5r7dour7x" path="res://Scenes/enemy/bat.tscn" id="1_s88kq"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c2sxs8geahfbl" path="res://Scenes/enemy/slug.tscn" id="9_b6i7y"]
 [ext_resource type="PackedScene" uid="uid://c7u3w00jm6mbn" path="res://Scenes/enemy/snail.tscn" id="10_m463r"]
 [ext_resource type="PackedScene" uid="uid://08xrhkd45lt1" path="res://Scenes/enemy/vulture.tscn" id="11_jhjh4"]
+[ext_resource type="PackedScene" uid="uid://ogbdgru40no0" path="res://Scenes/enemy/boss.tscn" id="12_qjaiw"]
 
 [node name="EnemyManager" type="Node"]
 script = ExtResource("1_8bgmx")
@@ -24,6 +25,7 @@ frog = ExtResource("8_ftqp0")
 slug = ExtResource("9_b6i7y")
 snail = ExtResource("10_m463r")
 vulture = ExtResource("11_jhjh4")
+boss = ExtResource("12_qjaiw")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

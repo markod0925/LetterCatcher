@@ -34,6 +34,7 @@ func _process(delta):
 func set_initial_data(_flying_enemy: bool, starting_lifes: int, lon_spd: float):
 	global_position.x = -110.0
 	flying_enemy = _flying_enemy
+	lifes = starting_lifes
 	prize_for_hit = starting_lifes
 	if flying_enemy:
 		global_position.y = randf_range(50, 360)
