@@ -1,13 +1,11 @@
 extends Node2D
 
-# TODO:
-	#Add sounds and Music!!
-
 @export var letter_scene : PackedScene
 @export var expl_scene : PackedScene
 @export var letter_timer : Timer
 @export var letter_container : Node
 @export var balloon_container : Node
+@export var sound_container : Node
 @export var score_label : Label
 @export var laser_scene : PackedScene
 @export var level_label : Label
@@ -48,6 +46,8 @@ func _ready():
 	tween.tween_property(book, "modulate:a", 1.0, 2.5)
 	
 	_set_smooth_dissolve(0.0)
+
+	SoundManager.play_music_random($BGMusic, "GAME")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -96,7 +96,11 @@ func _input(event: InputEvent):
 					_on_update_score_label()
 					letter_timer.wait_time = GameManager.get_wait_time()
 					#print("Wait time: %s" % str(letter_timer.wait_time))
-					break
+					return
+			#Remove points in HARD mode when wrong key is pressed
+			if GameManager.actual_difficulty == GameManager.Difficulty.HARD:
+				GameManager.update_score(Vector2(576, 512), -1)
+				_on_update_score_label()
 
 
 func _on_letter_time_timeout():
@@ -141,6 +145,10 @@ func make_explosion_and_shoot(pos: Vector2) -> void:
 	var new_explo = expl_scene.instantiate()
 	new_explo.global_position = pos
 	add_child(new_explo)
+	for sound in sound_container.get_children():
+		if not sound.is_playing():
+			SoundManager.play_laser_random(sound)
+			break
 
 
 func _get_legit_char_from_story() -> Dictionary:

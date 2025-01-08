@@ -89,8 +89,11 @@ func load_new_level() -> void:
 
 
 func update_score(pos: Vector2, value: int) -> void:
-	create_info_popup_scene(pos, "+%s" %value)
-	PlayerScore = PlayerScore + value
+	if value > 0:
+		create_info_popup_scene(pos, "+%s" %value)
+	else:
+		create_info_popup_scene(pos, "%s" %value)
+	PlayerScore = clampi(PlayerScore + value, 0, 99999)
 	if PlayerScore >= DataManager.high_score[str(actual_difficulty)]:
 		DataManager.high_score[str(actual_difficulty)] = PlayerScore
 

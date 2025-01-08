@@ -11,7 +11,9 @@ func _ready():
 	$VBoxContainer/HBoxContainer/MarginContainer4/VBoxContainer/MidRecord.text = str(DataManager.high_score[str(GameManager.Difficulty.MEDIUM)]).pad_zeros(5)
 	$VBoxContainer/HBoxContainer/MarginContainer5/VBoxContainer/HardRecord.text = str(DataManager.high_score[str(GameManager.Difficulty.HARD)]).pad_zeros(5)
 	$MarginContainer2/VBoxContainer2/ResetButton.text = tr("KEY_RESET").to_upper()
-	
+	SoundManager.play_music_random($BGMusic, "START")
+
+
 func _on_easy_pressed():
 	GameManager.actual_difficulty = GameManager.Difficulty.EASY
 	GameManager.start_new_game()

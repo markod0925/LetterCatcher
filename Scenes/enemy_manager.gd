@@ -46,7 +46,7 @@ signal UPDATE_SCORE_LABEL
 	"crab": {
 		"scene": crab,
 		"can_fly": false,
-		"lifes": 2,
+		"lifes": 3,
 		"speed": 25,
 		"from_level": 3
 	},
@@ -60,7 +60,7 @@ signal UPDATE_SCORE_LABEL
 	"frog": {
 		"scene": frog,
 		"can_fly": false,
-		"lifes": 1,
+		"lifes": 2,
 		"speed": 30,
 		"from_level": 3
 	},

@@ -302,6 +302,9 @@ layout_mode = 2
 theme = ExtResource("4_hc1st")
 text = "Resetta i punteggi"
 
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer/Easy" to="." method="_on_easy_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer4/VBoxContainer/Medium" to="." method="_on_medium_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer5/VBoxContainer/Hard" to="." method="_on_hard_pressed"]

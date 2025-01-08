@@ -19,6 +19,7 @@ config/icon="res://Assets/quest_req_icon_letterblock.png"
 
 GameManager="*res://Singleton/GameManager.gd"
 DataManager="*res://Singleton/DataManager.gd"
+SoundManager="*res://Singleton/SoundManager.gd"
 
 [display]
 

@@ -26,16 +26,19 @@ shader_parameter/dissolve_pct = 0.0
 shader_parameter/ask_color = Color(0, 0, 0, 1)
 shader_parameter/noise_tex = SubResource("NoiseTexture2D_4n0h2")
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("letter_timer", "letter_container", "balloon_container", "score_label", "level_label")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("letter_timer", "letter_container", "balloon_container", "sound_container", "score_label", "level_label")]
 script = ExtResource("1_fepgo")
 letter_scene = ExtResource("2_qphlm")
 expl_scene = ExtResource("3_u7id1")
 letter_timer = NodePath("LetterTime")
 letter_container = NodePath("LetterContainer")
 balloon_container = NodePath("BalloonContainer")
+sound_container = NodePath("SoundPlayers")
 score_label = NodePath("ScoreLabel")
 laser_scene = ExtResource("4_s52cq")
 level_label = NodePath("LevelLabel")
+metadata/_edit_vertical_guides_ = [568.0]
+metadata/_edit_horizontal_guides_ = [504.0]
 
 [node name="BG" type="CanvasLayer" parent="."]
 layer = -1
@@ -52,11 +55,37 @@ color = Color(0, 0, 0, 1)
 
 [node name="BalloonContainer" type="Node" parent="."]
 
+[node name="SoundPlayers" type="Node" parent="."]
+
+[node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="SoundPlayers"]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SoundPlayers"]
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="SoundPlayers"]
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="SoundPlayers"]
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="SoundPlayers"]
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="SoundPlayers"]
+
 [node name="EnemyManager" parent="." instance=ExtResource("5_nc7b8")]
 
 [node name="LetterTime" type="Timer" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+process_callback = 1
 wait_time = 2.0
+one_shot = false
 autostart = true
+script = null
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 texture_filter = 2
@@ -114,6 +143,9 @@ scale = Vector2(0.5, 0.5)
 modulate = Color(1, 1, 1, 0)
 position = Vector2(576, 568)
 texture = ExtResource("11_xhnq1")
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+volume_db = -30.0
 
 [connection signal="UPDATE_SCORE_LABEL" from="EnemyManager" to="." method="_on_update_score_label"]
 [connection signal="timeout" from="LetterTime" to="." method="_on_letter_time_timeout"]

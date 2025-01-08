@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b67q42oppwrfs"
+path="res://.godot/imported/Lyric Fantasy Theme #3.ogg-4434766b2b2bea73239945d098de8ed0.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/start_screen/Lyric Fantasy Theme #3.ogg"
+dest_files=["res://.godot/imported/Lyric Fantasy Theme #3.ogg-4434766b2b2bea73239945d098de8ed0.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -57,6 +57,10 @@ func _on_laser_hitted(_area):
 		return
 	lifes = lifes - 1
 	if lifes > 0:
+		var tween = get_tree().create_tween()
+		for i in range(3):
+			tween.tween_property($AnimatedSprite2D, "modulate", Color.FIREBRICK, 0.3)
+			tween.tween_property($AnimatedSprite2D, "modulate", Color.WHITE, 0.3)
 		return
 	set_deferred("monitoring", false)
 	longitudinal_speed = 0.0

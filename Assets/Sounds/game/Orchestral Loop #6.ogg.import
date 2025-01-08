@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bhhur3nrspu4q"
+path="res://.godot/imported/Orchestral Loop #6.ogg-f74a4b99162a93eb19fc02c61797385a.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/game/Orchestral Loop #6.ogg"
+dest_files=["res://.godot/imported/Orchestral Loop #6.ogg-f74a4b99162a93eb19fc02c61797385a.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
