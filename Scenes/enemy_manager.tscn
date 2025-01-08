@@ -28,19 +28,7 @@ vulture = ExtResource("11_jhjh4")
 boss = ExtResource("12_qjaiw")
 
 [node name="Timer" type="Timer" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-process_callback = 1
 wait_time = 5.0
-one_shot = false
 autostart = true
-script = null
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

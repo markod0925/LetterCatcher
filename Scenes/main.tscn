@@ -72,20 +72,8 @@ color = Color(0, 0, 0, 1)
 [node name="EnemyManager" parent="." instance=ExtResource("5_nc7b8")]
 
 [node name="LetterTime" type="Timer" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-process_callback = 1
 wait_time = 2.0
-one_shot = false
 autostart = true
-script = null
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 texture_filter = 2

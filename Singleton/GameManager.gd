@@ -54,6 +54,10 @@ func get_failure_rate() -> float:
 	return difficulty_dict[actual_difficulty]["failure_rate"]
 
 
+func reset_story_list() -> void:
+	_actual_story_list = {}
+	
+
 func get_story() -> Dictionary:
 	if _actual_story_list.size() == 0:
 		if TranslationServer.get_locale() in DataManager.stories_dict.keys():

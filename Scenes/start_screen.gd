@@ -30,6 +30,7 @@ func _on_hard_pressed():
 
 
 func _save_and_load() -> void:
+	GameManager.reset_story_list()
 	DataManager.save_game_data()
 	GameManager.load_start_screen()
 

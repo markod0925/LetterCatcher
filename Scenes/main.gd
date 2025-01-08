@@ -184,6 +184,10 @@ func _on_letter_burned(letter_pos:int) -> void:
 	var dissolve_time : float = clamp(GameManager.get_wait_time() - 0.1, 0.0, 2.0)
 	var dissolve_final : float = clamp(dissolve_start+dissolve_inc, 0.0, 1.0)
 	tween.tween_method(_set_smooth_dissolve, dissolve_start, dissolve_final, dissolve_time) # it must be less than the Timer's wait_time
+	for sound in sound_container.get_children():
+		if not sound.is_playing():
+			SoundManager.play_letter_burned_random(sound)
+			break
 	#print(main_bg.material.get_shader_parameter("dissolve_pct"))
 
 

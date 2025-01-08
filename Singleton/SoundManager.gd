@@ -30,17 +30,28 @@ preload("res://Assets/Sounds/start_screen/Lyric Fantasy Theme #4.ogg")
 ]
 
 const WIN_SOUND = [
-preload("res://Assets/Sounds/win/win_music.ogg")
+preload("res://Assets/Sounds/win_music.ogg")
 ]
 
 const LOSE_SOUND = [
-preload("res://Assets/Sounds/lose/lose_music.ogg")
+preload("res://Assets/Sounds/lose_music.ogg")
+]
+
+const LETTER_BURNED_SOUND = [
+preload("res://Assets/Sounds/explosions/sfx_exp_medium1.wav"),
+preload("res://Assets/Sounds/explosions/sfx_exp_medium2.wav"),
+preload("res://Assets/Sounds/explosions/sfx_exp_medium5.wav"),
+preload("res://Assets/Sounds/explosions/sfx_exp_medium6.wav"),
+preload("res://Assets/Sounds/explosions/sfx_exp_medium13.wav")
 ]
 
 func play_laser_random(audio: AudioStreamPlayer):
 	audio.stream = LASER_SOUND.pick_random()
 	audio.play()
 
+func play_letter_burned_random(audio: AudioStreamPlayer):
+	audio.stream = LETTER_BURNED_SOUND.pick_random()
+	audio.play()
 
 func play_music_random(audio: AudioStreamPlayer, scene: String):
 	match scene:
