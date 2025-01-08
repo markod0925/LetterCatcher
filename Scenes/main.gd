@@ -123,6 +123,7 @@ func game_win() -> void:
 	remove_burned_letters_from_story()
 	win_screen._set_title_and_story(_title, _story)
 	win_screen.show()
+	SoundManager.play_music_random($BGMusic, "WIN")
 
 
 func game_over() -> void:
@@ -136,6 +137,7 @@ func game_over() -> void:
 	GameManager.PlayerScore = 0
 	GameManager.actual_level = 1
 	DataManager.save_game_data()
+	SoundManager.play_music_random($BGMusic, "LOSE")
 
 
 func make_explosion_and_shoot(pos: Vector2) -> void:
