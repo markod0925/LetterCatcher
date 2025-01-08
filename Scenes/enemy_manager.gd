@@ -2,6 +2,7 @@ extends Node
 
 signal UPDATE_SCORE_LABEL
 
+# Exported variables for different enemy scenes
 @export var bat_scene : PackedScene
 @export var bee_scene : PackedScene
 @export var blue_bird : PackedScene
@@ -14,6 +15,7 @@ signal UPDATE_SCORE_LABEL
 @export var vulture : PackedScene
 @export var boss : PackedScene
 
+# Dictionary containing enemy data
 @onready var enemies : Dictionary = {
 	"bat": {
 		"scene": bat_scene,
@@ -94,6 +96,7 @@ signal UPDATE_SCORE_LABEL
 	}
 }
 
+# Array to store available enemies for the current level
 var available_enemies : Array = []
 
 # Called when the node enters the scene tree for the first time.
@@ -106,15 +109,15 @@ func _ready():
 	if GameManager.Boss_activated:
 		spawn_an_enemy("boss")
 
-
+# Called when the timer times out to spawn a new enemy
 func _on_timer_timeout():
 	spawn_an_enemy(pick_an_enemy())
 
-
+# Function to pick a random enemy from the available enemies
 func pick_an_enemy() -> String:
 	return available_enemies.pick_random()
 
-
+# Function to spawn an enemy
 func spawn_an_enemy(_enemy: String) -> void:
 	var new_enemy = enemies[_enemy]["scene"].instantiate()
 	add_child(new_enemy)
@@ -125,7 +128,7 @@ func spawn_an_enemy(_enemy: String) -> void:
 	)
 	new_enemy.ENEMY_DIED.connect(_on_enemy_died)
 	
-
+# Function to handle the event when an enemy dies
 func _on_enemy_died(pos: Vector2, inc_score: int) -> void:
 	GameManager.update_score(pos, inc_score)
 	UPDATE_SCORE_LABEL.emit()
