@@ -2,6 +2,8 @@
 
 LetterCatcher is an educational game designed to help kids improve their typing skills. The game provides a fun and engaging way for children to practice keyboard usage, enhancing their typing speed, accuracy, and familiarity with the keyboard layout.
 
+Made in Godot 4.3.
+
 ## Game Description
 
 In LetterCatcher, players are presented with falling letters that they must type correctly before the letters reach the bottom of the screen. The game features various levels of difficulty, each with increasing speed and complexity. As players progress through the levels, they encounter different challenges that test their typing abilities.
