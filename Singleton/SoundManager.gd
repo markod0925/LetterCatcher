@@ -29,6 +29,13 @@ preload("res://Assets/Sounds/start_screen/Lyric Fantasy Theme #3.ogg"),
 preload("res://Assets/Sounds/start_screen/Lyric Fantasy Theme #4.ogg")
 ]
 
+const WIN_SOUND = [
+preload("res://Assets/Sounds/win/win_music.ogg")
+]
+
+const LOSE_SOUND = [
+preload("res://Assets/Sounds/lose/lose_music.ogg")
+]
 
 func play_laser_random(audio: AudioStreamPlayer):
 	audio.stream = LASER_SOUND.pick_random()
@@ -41,4 +48,8 @@ func play_music_random(audio: AudioStreamPlayer, scene: String):
 			audio.stream = START_SOUND.pick_random()
 		"GAME":
 			audio.stream = GAME_SOUND.pick_random()
+		"WIN":
+			audio.stream = WIN_SOUND.pick_random()
+		"LOSE":
+			audio.stream = LOSE_SOUND.pick_random()
 	audio.play()
