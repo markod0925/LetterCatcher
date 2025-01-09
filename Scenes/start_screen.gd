@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	TranslationServer.set_locale("en")
 	DataManager.load_game_data()
 	$VBoxContainer/Titolo.text = tr("KEY_TITLE").to_upper()
 	$VBoxContainer/HBoxContainer/VBoxContainer/Titolo2.text = tr("KEY_DIFF_LABEL")
