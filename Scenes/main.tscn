@@ -51,7 +51,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="LetterContainer" type="Node" parent="."]
+[node name="LetterContainer" type="Node2D" parent="."]
+z_index = 10
 
 [node name="BalloonContainer" type="Node" parent="."]
 

@@ -20,7 +20,7 @@ signal UPDATE_SCORE_LABEL
 	"bat": {
 		"scene": bat_scene,
 		"can_fly": true,
-		"lifes": 1,
+		"lifes": 2,
 		"speed": 30,
 		"from_level": 1
 	},
@@ -34,14 +34,14 @@ signal UPDATE_SCORE_LABEL
 	"blue_bird": {
 		"scene": blue_bird,
 		"can_fly": true,
-		"lifes": 2,
+		"lifes": 1,
 		"speed": 45,
 		"from_level": 3
 	},
 	"bunny": {
 		"scene": bunny,
 		"can_fly": false,
-		"lifes": 1,
+		"lifes": 2,
 		"speed": 30,
 		"from_level": 4
 	},
@@ -55,7 +55,7 @@ signal UPDATE_SCORE_LABEL
 	"eagle": {
 		"scene": eagle,
 		"can_fly": true,
-		"lifes": 2,
+		"lifes": 1,
 		"speed": 80,
 		"from_level": 5
 	},
@@ -69,21 +69,21 @@ signal UPDATE_SCORE_LABEL
 	"slug": {
 		"scene": slug,
 		"can_fly": false,
-		"lifes": 1,
+		"lifes": 2,
 		"speed": 25,
 		"from_level": 1
 	},
 	"snail": {
 		"scene": snail,
 		"can_fly": false,
-		"lifes": 1,
+		"lifes": 2,
 		"speed": 20,
 		"from_level": 2
 	},
 	"vulture": {
 		"scene": vulture,
 		"can_fly": true,
-		"lifes": 2,
+		"lifes": 1,
 		"speed": 60,
 		"from_level": 3
 	},

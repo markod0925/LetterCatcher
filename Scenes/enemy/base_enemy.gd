@@ -33,13 +33,13 @@ func set_initial_data(_flying_enemy: bool, starting_lifes: int, lon_spd: float):
 	global_position.x = -110.0
 	flying_enemy = _flying_enemy
 	lifes = starting_lifes
-	prize_for_hit = starting_lifes
+	prize_for_hit = 0
 	if flying_enemy:
 		global_position.y = randf_range(50, 360)
 		prize_for_hit = prize_for_hit + 3
 	else:
 		global_position.y = randf_range(430, 520)
-	prize_for_hit = prize_for_hit + int(lon_spd/10.0)
+	prize_for_hit = starting_lifes * (prize_for_hit + int(lon_spd/10.0))
 	longitudinal_speed = lon_spd
 
 

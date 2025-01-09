@@ -3,7 +3,7 @@ extends Node2D
 @export var letter_scene : PackedScene
 @export var expl_scene : PackedScene
 @export var letter_timer : Timer
-@export var letter_container : Node
+@export var letter_container : Node2D
 @export var balloon_container : Node
 @export var sound_container : Node
 @export var score_label : Label
@@ -99,7 +99,7 @@ func _input(event: InputEvent):
 					return
 			#Remove points in HARD mode when wrong key is pressed
 			if GameManager.actual_difficulty == GameManager.Difficulty.HARD:
-				GameManager.update_score(Vector2(576, 512), -1)
+				GameManager.update_score(Vector2(576, 512), -GameManager.actual_level)
 				_on_update_score_label()
 
 
