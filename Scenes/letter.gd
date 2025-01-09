@@ -13,11 +13,9 @@ var _lower_case_level : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	vpr = get_viewport_rect()
-	# Pick a random .png file from the list
+	# Pick a random preloaded texture from the list
 	baloon.hide()
-	var balloon_list = GameManager.list_balloon_files
-	var random_balloon = balloon_list[randi_range(0, balloon_list.size()-1)]
-	baloon.texture = load("res://Assets/Balloons/%s" % random_balloon)
+	baloon.texture = DataManager.pick_random_balloon()
 	_lower_case_level = GameManager.actual_level%2 == 0
 
 

@@ -75,7 +75,7 @@ func get_story() -> Dictionary:
 func start_new_game() -> void:
 	PlayerScore = 0
 	actual_level = 1
-	list_balloon_files = list_balloons()
+	list_balloon_files = DataManager.get_balloon_files()
 	Boss_activated = false
 	load_main_scene()
 
@@ -106,19 +106,3 @@ func create_info_popup_scene(pos: Vector2, info: String) -> void:
 	var new_popup = POPUP_SCENE.instantiate()
 	new_popup.setup(pos, info)
 	call_add_child(new_popup)
-
-
-func list_balloons() -> Array:
-	var balloons = []
-	var dir = DirAccess.open("res://Assets/Balloons")
-	if dir:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if !dir.current_is_dir() and file_name.ends_with(".png"):
-				balloons.append(file_name)
-			file_name = dir.get_next()
-		dir.list_dir_end()
-	else:
-		print("An error occurred when trying to access the path.")
-	return balloons
