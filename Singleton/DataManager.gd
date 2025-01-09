@@ -85,8 +85,6 @@ func load_stories_data() -> void:
 
 	stories_dict = data
 
-func get_balloon_files() -> Array:
-	return BALLOON_FILES
 
-func pick_random_balloon() -> String:
+func pick_random_balloon() -> CompressedTexture2D:
 	return BALLOON_FILES[randi_range(0, BALLOON_FILES.size() - 1)]
