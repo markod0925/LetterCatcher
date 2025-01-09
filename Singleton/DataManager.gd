@@ -10,10 +10,22 @@ var high_score : Dictionary = {
 	str(GameManager.Difficulty.HARD) : 0,
 }
 
+const BALLOON_FILES = [
+	preload("res://Assets/Balloons/balloon_form_1_1.png"),
+	preload("res://Assets/Balloons/balloon_form_1_13.png"),
+	preload("res://Assets/Balloons/balloon_form_1_16.png"),
+	preload("res://Assets/Balloons/balloon_form_1_20.png"),
+	preload("res://Assets/Balloons/balloon_form_1_24.png"),
+	preload("res://Assets/Balloons/balloon_form_1_27.png"),
+	preload("res://Assets/Balloons/balloon_form_1_28.png"),
+	preload("res://Assets/Balloons/balloon_form_1_31.png"),
+	preload("res://Assets/Balloons/balloon_form_1_34.png"),
+	preload("res://Assets/Balloons/balloon_form_1_8.png")
+]
+
 func _ready():
 	load_game_data()
 	load_stories_data()
-
 
 func reset_game_data() -> void:
 	high_score = {
@@ -23,7 +35,6 @@ func reset_game_data() -> void:
 	}
 	save_game_data()
 
-
 func save_game_data() -> void:
 	var file = FileAccess.open(DATA_FILE, FileAccess.WRITE)
 	var data : Dictionary = {
@@ -31,7 +42,6 @@ func save_game_data() -> void:
 	}
 	data["HIGH_SCORE"] = high_score
 	file.store_string(JSON.stringify(data))
-
 
 func load_game_data() -> void:
 	if !FileAccess.file_exists(DATA_FILE):
@@ -48,7 +58,6 @@ func load_game_data() -> void:
 
 	if "HIGH_SCORE" in data:
 		high_score = data["HIGH_SCORE"]
-
 
 func load_stories_data() -> void:
 	if !FileAccess.file_exists(STORIES_FILE):
@@ -75,3 +84,7 @@ func load_stories_data() -> void:
 				data[lang_key].erase(diff_key)
 
 	stories_dict = data
+
+
+func pick_random_balloon() -> CompressedTexture2D:
+	return BALLOON_FILES[randi_range(0, BALLOON_FILES.size() - 1)]

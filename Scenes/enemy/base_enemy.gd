@@ -17,9 +17,7 @@ func _ready():
 	vpr = get_viewport_rect()
 	falling_speed = 0
 	baloon.hide()
-	var balloon_list = GameManager.list_balloon_files
-	var random_balloon = balloon_list[randi_range(0, balloon_list.size()-1)]
-	baloon.texture = load("res://Assets/Balloons/%s" % random_balloon)
+	baloon.texture = DataManager.pick_random_balloon()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
