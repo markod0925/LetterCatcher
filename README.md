@@ -67,11 +67,13 @@ We welcome contributions to the LetterCatcher project! Here are some ways you ca
 
 ### Adding Languages
 
-1. Translate the game's text into a new language (e.g., XX) modifying `Assets/translations.csv`.
+1. Translate the game's text into a new language (e.g., `XX`) modifying `Assets/translations.csv`.
 2. Open Godot Editor: it will automatically create a new `Assets/translations.XX.translation` file.
 3. Add the new translation file to the project (Project->Project Settings...->Localization->Translation->Add).
 4. Add new stories in the `stories.dat` file creating a new `XX` entry in the JSON file.
-5. Submit a pull request with your new translations.
+5. Add the new flag icon of `XX` into assets.
+6. Add the flag button of `XX` to the `start_screen.tscn` scene, assign the proper flag icon, and connect the pressed signal to a new function that calls set_locale().
+7. Submit a pull request with your new translations.
 
 ### Reporting Issues
 
