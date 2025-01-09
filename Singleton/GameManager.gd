@@ -5,7 +5,6 @@ const ERROR_CODE = "ErrA3Vcs5"
 var PlayerScore : int = 0
 var actual_level : int = 1
 var actual_difficulty : Difficulty = Difficulty.EASY
-var list_balloon_files : Array
 var POPUP_SCENE : PackedScene = preload("res://Scenes/popup/popup.tscn")
 var local_lang = "it"
 var Boss_activated : bool = false
@@ -75,7 +74,6 @@ func get_story() -> Dictionary:
 func start_new_game() -> void:
 	PlayerScore = 0
 	actual_level = 1
-	list_balloon_files = DataManager.get_balloon_files()
 	Boss_activated = false
 	load_main_scene()
 
