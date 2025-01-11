@@ -51,5 +51,6 @@ func set_initial_data(letter_data: Dictionary, screen_margin: float):
 func fly_away():
 	falling_speed = -20
 	baloon.show()
-	var tween = get_tree().create_tween()
+	var tween = self.create_tween()
 	tween.tween_property(baloon, "scale", Vector2(0.4, 0.4), 0.3)
+	tween.tween_property(self, "modulate:a", 0.3, 5.0)

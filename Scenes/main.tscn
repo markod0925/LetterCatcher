@@ -59,16 +59,22 @@ z_index = 10
 [node name="SoundPlayers" type="Node" parent="."]
 
 [node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="SoundPlayers"]
+volume_db = -10.0
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SoundPlayers"]
+volume_db = -10.0
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="SoundPlayers"]
+volume_db = -10.0
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="SoundPlayers"]
+volume_db = -10.0
 
 [node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="SoundPlayers"]
+volume_db = -10.0
 
 [node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="SoundPlayers"]
+volume_db = -10.0
 
 [node name="EnemyManager" parent="." instance=ExtResource("5_nc7b8")]
 

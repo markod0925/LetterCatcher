@@ -46,8 +46,9 @@ func set_initial_data(_flying_enemy: bool, starting_lifes: int, lon_spd: float):
 func fly_away():
 	falling_speed = -20
 	baloon.show()
-	var tween = get_tree().create_tween()
+	var tween = self.create_tween()
 	tween.tween_property(baloon, "scale", balloon_size, 0.3)
+	tween.tween_property(self, "modulate:a", 0.3, 5.0)
 
 
 func _on_laser_hitted(_area):
