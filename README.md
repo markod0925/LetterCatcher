@@ -4,6 +4,8 @@ LetterCatcher is an educational game designed to help kids improve their typing 
 
 Made in Godot 4.3.
 
+Play in browser: https://markod0925.itch.io/lettercatcher
+
 ## Game Description
 
 In LetterCatcher, players are presented with falling letters that they must type correctly before the letters reach the bottom of the screen. The game features various levels of difficulty, each with increasing speed and complexity. As players progress through the levels, they encounter different challenges that test their typing abilities.
