@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://rk1a47bnre2t"]
+[gd_scene load_steps=19 format=3 uid="uid://rk1a47bnre2t"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_fepgo"]
 [ext_resource type="PackedScene" uid="uid://wrfanq0j4cxn" path="res://Scenes/letter.tscn" id="2_qphlm"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://gqltcffyy5te" path="res://Assets/vfx/flame_below.tscn" id="8_3u3ae"]
 [ext_resource type="PackedScene" uid="uid://dktd5ky8ei64m" path="res://Scenes/pause_screen.tscn" id="10_gc2qo"]
 [ext_resource type="Texture2D" uid="uid://3vxbd7djknvm" path="res://Assets/book.png" id="11_xhnq1"]
+[ext_resource type="Shader" path="res://Shaders/color_blind.gdshader" id="12_1ic6c"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vyt85"]
 
@@ -25,6 +26,11 @@ shader = ExtResource("5_fao8l")
 shader_parameter/dissolve_pct = 0.0
 shader_parameter/ask_color = Color(0, 0, 0, 1)
 shader_parameter/noise_tex = SubResource("NoiseTexture2D_4n0h2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_30cfi"]
+shader = ExtResource("12_1ic6c")
+shader_parameter/mode = 0
+shader_parameter/intensity = 0.5
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("letter_timer", "letter_container", "balloon_container", "sound_container", "score_label", "level_label")]
 script = ExtResource("1_fepgo")
@@ -129,6 +135,15 @@ visible = false
 
 [node name="PauseScreen" parent="Screens" instance=ExtResource("10_gc2qo")]
 visible = false
+
+[node name="ColorBlindCorrection" type="ColorRect" parent="Screens"]
+material = SubResource("ShaderMaterial_30cfi")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Flames" parent="." instance=ExtResource("8_3u3ae")]
 position = Vector2(576, 648)

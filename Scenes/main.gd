@@ -46,6 +46,7 @@ func _ready():
 	tween.tween_property(book, "modulate:a", 1.0, 2.5)
 	
 	_set_smooth_dissolve(0.0)
+	$Screens/ColorBlindCorrection.material.set_shader_parameter("mode", GameManager.color_blind_mode)
 
 	SoundManager.play_music_random($BGMusic, "GAME")
 

@@ -35,13 +35,16 @@ func reset_game_data() -> void:
 	}
 	save_game_data()
 
+
 func save_game_data() -> void:
 	var file = FileAccess.open(DATA_FILE, FileAccess.WRITE)
 	var data : Dictionary = {
 		"LOCAL_KEY": TranslationServer.get_locale(),
 	}
 	data["HIGH_SCORE"] = high_score
+	data["BLIND_MODE"] = GameManager.color_blind_mode
 	file.store_string(JSON.stringify(data))
+
 
 func load_game_data() -> void:
 	if !FileAccess.file_exists(DATA_FILE):
@@ -58,6 +61,10 @@ func load_game_data() -> void:
 
 	if "HIGH_SCORE" in data:
 		high_score = data["HIGH_SCORE"]
+
+	if "BLIND_MODE" in data:
+		GameManager.color_blind_mode = data["BLIND_MODE"]
+
 
 func load_stories_data() -> void:
 	if !FileAccess.file_exists(STORIES_FILE):

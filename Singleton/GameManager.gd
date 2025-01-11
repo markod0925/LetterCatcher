@@ -9,6 +9,7 @@ var POPUP_SCENE : PackedScene = preload("res://Scenes/popup/popup.tscn")
 var local_lang = "it"
 var Boss_activated : bool = false
 var _actual_story_list : Dictionary = {}
+var color_blind_mode : int = 0
 
 enum Difficulty {EASY, MEDIUM, HARD}
 

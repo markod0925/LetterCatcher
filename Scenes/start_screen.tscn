@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ddh1ya3eo1r2k"]
+[gd_scene load_steps=22 format=3 uid="uid://ddh1ya3eo1r2k"]
 
 [ext_resource type="Script" path="res://Scenes/start_screen.gd" id="1_krd8m"]
 [ext_resource type="Texture2D" uid="uid://cohjldet1u0br" path="res://Assets/env/MainBG.png" id="1_w78yl"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cir2mbg0qjh5c" path="res://Assets/Flags/flag_es.svg" id="8_8cnpk"]
 [ext_resource type="Texture2D" uid="uid://d0ui0dryx4c8y" path="res://Assets/Flags/flag_de.svg" id="10_n8l8w"]
 [ext_resource type="Texture2D" uid="uid://bktofya4jqcvj" path="res://Assets/Flags/flag_fr.svg" id="11_ivl53"]
+[ext_resource type="Shader" path="res://Shaders/color_blind.gdshader" id="12_kv0n5"]
 
 [sub_resource type="Shader" id="Shader_l2mqf"]
 code = "shader_type canvas_item;
@@ -89,6 +90,11 @@ _data = {
 "RESET": SubResource("Animation_pvp5r"),
 "dissolve": SubResource("Animation_bsfso")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i33bv"]
+shader = ExtResource("12_kv0n5")
+shader_parameter/mode = 0
+shader_parameter/intensity = 0.5
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -302,8 +308,23 @@ layout_mode = 2
 theme = ExtResource("4_hc1st")
 text = "Resetta i punteggi"
 
+[node name="ColorBlindMode" type="Button" parent="MarginContainer2/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("4_hc1st")
+text = "Modalità Daltonici"
+
 [node name="BGMusic" type="AudioStreamPlayer" parent="."]
 volume_db = -20.0
+
+[node name="ColorBlindCorrection" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_i33bv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer/Easy" to="." method="_on_easy_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MarginContainer4/VBoxContainer/Medium" to="." method="_on_medium_pressed"]
@@ -314,3 +335,4 @@ volume_db = -20.0
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/LangDeButton" to="." method="_on_lang_de_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer2/LangFrButton" to="." method="_on_lang_fr_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/VBoxContainer2/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer2/ColorBlindMode" to="." method="_on_color_blind_mode_pressed"]

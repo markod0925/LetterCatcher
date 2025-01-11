@@ -12,6 +12,8 @@ func _ready():
 	$VBoxContainer/HBoxContainer/MarginContainer4/VBoxContainer/MidRecord.text = str(DataManager.high_score[str(GameManager.Difficulty.MEDIUM)]).pad_zeros(5)
 	$VBoxContainer/HBoxContainer/MarginContainer5/VBoxContainer/HardRecord.text = str(DataManager.high_score[str(GameManager.Difficulty.HARD)]).pad_zeros(5)
 	$MarginContainer2/VBoxContainer2/ResetButton.text = tr("KEY_RESET").to_upper()
+	$MarginContainer2/VBoxContainer2/ColorBlindMode.text = tr("KEY_BLINDCOLOR").to_upper()
+	$ColorBlindCorrection.material.set_shader_parameter("mode", GameManager.color_blind_mode)
 	SoundManager.play_music_random($BGMusic, "START")
 
 
@@ -58,4 +60,12 @@ func _on_lang_fr_button_pressed():
 
 func _on_reset_button_pressed():
 	DataManager.reset_game_data()
+	_save_and_load()
+
+func _on_color_blind_mode_pressed():
+	if GameManager.color_blind_mode == 3:
+		GameManager.color_blind_mode = 0
+	else:
+		GameManager.color_blind_mode = GameManager.color_blind_mode + 1
+	$ColorBlindCorrection.material.set_shader_parameter("mode", GameManager.color_blind_mode)
 	_save_and_load()
