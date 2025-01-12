@@ -19,16 +19,19 @@ func _ready():
 
 func _on_easy_pressed():
 	GameManager.actual_difficulty = GameManager.Difficulty.EASY
+	GameManager.reset_story_list()
 	GameManager.start_new_game()
 
 
 func _on_medium_pressed():
 	GameManager.actual_difficulty = GameManager.Difficulty.MEDIUM
+	GameManager.reset_story_list()
 	GameManager.start_new_game()
 
 
 func _on_hard_pressed():
 	GameManager.actual_difficulty = GameManager.Difficulty.HARD
+	GameManager.reset_story_list()
 	GameManager.start_new_game()
 
 

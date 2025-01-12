@@ -91,7 +91,7 @@ signal UPDATE_SCORE_LABEL
 		"scene": boss,
 		"can_fly": false,
 		"lifes": 50,
-		"speed": 20,
+		"speed": 10,
 		"from_level": 100
 	}
 }
@@ -120,6 +120,8 @@ func pick_an_enemy() -> String:
 # Function to spawn an enemy
 func spawn_an_enemy(_enemy: String) -> void:
 	var new_enemy = enemies[_enemy]["scene"].instantiate()
+	if GameManager.actual_difficulty == GameManager.Difficulty.HARD and _enemy == "boss":
+		enemies[_enemy]["speed"] = 20
 	add_child(new_enemy)
 	new_enemy.set_initial_data(
 		enemies[_enemy]["can_fly"], 

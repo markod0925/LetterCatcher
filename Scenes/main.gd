@@ -60,6 +60,7 @@ func _process(_delta):
 	if game_over_screen.visible or win_screen.visible:
 		return
 	if _last_letter_emitted and letter_container.get_child_count() == 0:
+		await get_tree().create_timer(0.2).timeout
 		game_win()
 		return
 	
@@ -178,6 +179,7 @@ func _on_letter_burned(letter_pos:int) -> void:
 	letters_burned.append(letter_pos)
 	var dissolve_start : float = main_bg.material.get_shader_parameter("dissolve_pct")
 	if dissolve_start >= 1.0:
+		await get_tree().create_timer(0.2).timeout
 		game_over()
 		return
 	var dissolve_inc : float = GameManager.get_failure_rate()/(_story.length())
