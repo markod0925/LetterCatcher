@@ -27,6 +27,8 @@ func _process(delta):
 		queue_free()
 		
 	position.x += delta * longitudinal_speed
+	if position.x > vpr.end.x+100:
+		queue_free()
 
 
 func set_initial_data(_flying_enemy: bool, starting_lifes: int, lon_spd: float):

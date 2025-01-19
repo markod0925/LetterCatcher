@@ -43,7 +43,7 @@ func set_initial_data(letter_data: Dictionary, screen_margin: float):
 	text = letter_data["letter"]
 	story_position = letter_data["index"]
 	global_position.x = randf_range(vpr.position.x + screen_margin, vpr.end.x-screen_margin)
-	global_position.y = vpr.position.y-screen_margin
+	global_position.y = vpr.position.y-50.0
 	falling_speed = GameManager.get_letter_speed() + GameManager.actual_level * 2
 	#print("Falling speed: %s" % falling_speed)
 

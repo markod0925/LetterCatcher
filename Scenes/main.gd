@@ -116,7 +116,7 @@ func _on_letter_time_timeout():
 		_last_letter_emitted = true
 		return
 	letter_container.add_child(new_letter)
-	new_letter.set_initial_data(letter_data, MARGIN)
+	new_letter.set_initial_data(letter_data, MARGIN + (2.0 - float(GameManager.actual_difficulty)) * 100.0)
 	new_letter.BURN_LETTER.connect(_on_letter_burned)
 
 
