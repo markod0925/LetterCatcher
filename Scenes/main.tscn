@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dktd5ky8ei64m" path="res://Scenes/pause_screen.tscn" id="10_gc2qo"]
 [ext_resource type="Texture2D" uid="uid://3vxbd7djknvm" path="res://Assets/book.png" id="11_xhnq1"]
 [ext_resource type="Shader" uid="uid://b1plsojp282jv" path="res://Shaders/color_blind.gdshader" id="12_1ic6c"]
+[ext_resource type="Texture2D" uid="uid://cl5qnhg3efekv" path="res://Assets/buttons/Panel.png" id="15_k12tt"]
 [ext_resource type="LabelSettings" uid="uid://fvels2ilqglw" path="res://Assets/Fonts/Roboto_White_22.tres" id="15_wsu2k"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vyt85"]
@@ -32,6 +33,9 @@ shader_parameter/ask_color = Color(0, 0, 0, 1)
 shader = ExtResource("12_1ic6c")
 shader_parameter/mode = 0
 shader_parameter/intensity = 0.5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1bgf"]
+texture = ExtResource("15_k12tt")
 
 [node name="Main" type="Node2D" unique_id=889149038 node_paths=PackedStringArray("letter_timer", "letter_container", "balloon_container", "sound_container", "score_label", "level_label")]
 script = ExtResource("1_fepgo")
@@ -162,16 +166,17 @@ volume_db = -30.0
 offset_top = 502.0
 offset_right = 1152.0
 offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_h1bgf")
 
 [node name="StoryLabel" type="Label" parent="StoryPanel" unique_id=2006611761]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 5.0
-offset_right = -10.0
-offset_bottom = -5.0
+offset_left = 21.0
+offset_top = 9.0
+offset_right = -19.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "La regina era bella e gentile, con i capelli biondi e gli occhi azzurri. La regina amava i fiori e gli animali, e passava le giornate a passeggiare nei giardini del castello. La regina era amata da tutti, per la sua bontà e la sua generosità."

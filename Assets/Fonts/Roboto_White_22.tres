@@ -5,6 +5,7 @@
 [resource]
 font = ExtResource("1_mdj8u")
 font_size = 22
+font_color = Color(0, 0, 0, 1)
 outline_color = Color(1, 1, 1, 0.337255)
 shadow_size = 3
-shadow_color = Color(0, 0, 0, 1)
+shadow_color = Color(1, 1, 1, 1)
