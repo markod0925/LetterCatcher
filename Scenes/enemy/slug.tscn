@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2sxs8geahfbl"]
+[gd_scene format=3 uid="uid://c2sxs8geahfbl"]
 
 [ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_yu3uh"]
 [ext_resource type="Texture2D" uid="uid://carbtdp1docqa" path="res://Assets/enemies/slug/slug.png" id="2_k8gxj"]
@@ -42,12 +42,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_5efs1"]
 radius = 14.0
 
-[node name="Slug" instance=ExtResource("1_yu3uh")]
+[node name="Slug" unique_id=2134155960 instance=ExtResource("1_yu3uh")]
 balloon_size = Vector2(0.3, 0.26)
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1111382576]
 sprite_frames = SubResource("SpriteFrames_0qpc7")
 frame_progress = 0.742511
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1" unique_id=746948135]
 shape = SubResource("CircleShape2D_5efs1")

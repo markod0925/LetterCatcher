@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://bp3nakpjjn6ja"]
+[gd_scene format=3 uid="uid://bp3nakpjjn6ja"]
 
 [ext_resource type="Texture2D" uid="uid://cmjn43jjfdfqr" path="res://Assets/explosion_boat.png" id="1_8di4f"]
-[ext_resource type="Script" path="res://Scenes/explosion.gd" id="2_p84qh"]
+[ext_resource type="Script" uid="uid://112n6hk7s1hx" path="res://Scenes/explosion.gd" id="2_p84qh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t7le7"]
 atlas = ExtResource("1_8di4f")
@@ -88,7 +88,7 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Explosion" type="AnimatedSprite2D"]
+[node name="Explosion" type="AnimatedSprite2D" unique_id=206353349]
 modulate = Color(0, 0.172549, 0.937255, 1)
 sprite_frames = SubResource("SpriteFrames_iaypq")
 autoplay = "default"

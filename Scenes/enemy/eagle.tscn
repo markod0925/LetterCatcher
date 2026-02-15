@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://52myoxdbc8o"]
+[gd_scene format=3 uid="uid://52myoxdbc8o"]
 
 [ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_2m768"]
 [ext_resource type="Texture2D" uid="uid://1og8g1dl62at" path="res://Assets/enemies/eagle/eagle-attack.png" id="2_d0yg5"]
@@ -42,12 +42,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_b84ps"]
 radius = 20.0
 
-[node name="Eagle" instance=ExtResource("1_2m768")]
+[node name="Eagle" unique_id=1415200504 instance=ExtResource("1_2m768")]
 balloon_size = Vector2(0.41, 0.36)
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1111382576]
 sprite_frames = SubResource("SpriteFrames_wury1")
 frame_progress = 0.0
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1" unique_id=746948135]
 shape = SubResource("CircleShape2D_b84ps")

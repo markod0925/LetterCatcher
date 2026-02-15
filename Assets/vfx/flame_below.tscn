@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://gqltcffyy5te"]
+[gd_scene format=3 uid="uid://gqltcffyy5te"]
 
 [sub_resource type="Gradient" id="Gradient_vyadr"]
 offsets = PackedFloat32Array(0, 0.243421, 1)
@@ -26,6 +26,6 @@ scale_max = 15.0
 scale_curve = SubResource("CurveTexture_67g7u")
 color_ramp = SubResource("GradientTexture1D_rumn6")
 
-[node name="Flames" type="GPUParticles2D"]
+[node name="Flames" type="GPUParticles2D" unique_id=1530594906]
 amount = 1000
 process_material = SubResource("ParticleProcessMaterial_mmtuo")

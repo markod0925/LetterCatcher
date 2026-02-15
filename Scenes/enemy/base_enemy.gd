@@ -40,7 +40,7 @@ func set_initial_data(_flying_enemy: bool, starting_lifes: int, lon_spd: float):
 		global_position.y = randf_range(50, 360)
 		prize_for_hit = prize_for_hit + 3
 	else:
-		global_position.y = randf_range(430, 520)
+		global_position.y = randf_range(420, 460)
 	prize_for_hit = starting_lifes * (prize_for_hit + int(lon_spd/10.0))
 	longitudinal_speed = lon_spd
 
@@ -50,7 +50,7 @@ func fly_away():
 	baloon.show()
 	var tween = self.create_tween()
 	tween.tween_property(baloon, "scale", balloon_size, 0.3)
-	tween.tween_property(self, "modulate:a", 0.3, 5.0)
+	tween.tween_property(self, "modulate:a", 0.1, 1.5)
 
 
 func _on_laser_hitted(_area):

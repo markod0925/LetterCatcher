@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d24ko0ed1dw54"]
+[gd_scene format=3 uid="uid://d24ko0ed1dw54"]
 
 [ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_eew2o"]
 [ext_resource type="Texture2D" uid="uid://butefmk4mtkat" path="res://Assets/enemies/bunny/boss_bunny.png" id="2_777wi"]
@@ -46,9 +46,9 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Bunny" instance=ExtResource("1_eew2o")]
+[node name="Bunny" unique_id=267233810 instance=ExtResource("1_eew2o")]
 balloon_size = Vector2(0.38, 0.42)
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1111382576]
 sprite_frames = SubResource("SpriteFrames_oe4cv")
 frame_progress = 0.911853

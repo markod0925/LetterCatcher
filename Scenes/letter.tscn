@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://wrfanq0j4cxn"]
+[gd_scene format=3 uid="uid://wrfanq0j4cxn"]
 
-[ext_resource type="Script" path="res://Scenes/letter.gd" id="1_l27go"]
+[ext_resource type="Script" uid="uid://bdkp33olh4215" path="res://Scenes/letter.gd" id="1_l27go"]
 [ext_resource type="FontFile" uid="uid://cbiqukoa57qgb" path="res://Assets/Fonts/Roboto-Bold.ttf" id="2_5tvhc"]
 [ext_resource type="PackedScene" uid="uid://shmw5wwufhv0" path="res://Scenes/burning.tscn" id="3_kes0m"]
 
@@ -12,7 +12,7 @@ outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="Letter" type="Label"]
+[node name="Letter" type="Label" unique_id=1730266638]
 offset_right = 64.0
 offset_bottom = 38.0
 pivot_offset = Vector2(32, 16)
@@ -24,7 +24,7 @@ burning_scene = ExtResource("3_kes0m")
 metadata/_edit_vertical_guides_ = [32.0]
 metadata/_edit_horizontal_guides_ = [24.0]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1221483115]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -34,7 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.372549)
 
-[node name="Baloon" type="Sprite2D" parent="."]
+[node name="Baloon" type="Sprite2D" parent="." unique_id=187844300]
 visible = false
 modulate = Color(1, 1, 1, 0.392157)
 position = Vector2(32, 24)

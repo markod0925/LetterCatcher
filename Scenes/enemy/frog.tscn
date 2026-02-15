@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cg4x6fvgloq46"]
+[gd_scene format=3 uid="uid://cg4x6fvgloq46"]
 
 [ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_44fr6"]
 [ext_resource type="Texture2D" uid="uid://bc7iky7ib48bd" path="res://Assets/enemies/frog/frog_sheet.png" id="2_m8oax"]
@@ -32,9 +32,9 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Frog" instance=ExtResource("1_44fr6")]
+[node name="Frog" unique_id=1942427032 instance=ExtResource("1_44fr6")]
 balloon_size = Vector2(0.47, 0.4)
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1111382576]
 sprite_frames = SubResource("SpriteFrames_oi6jn")
 frame_progress = 0.575739

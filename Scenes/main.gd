@@ -14,6 +14,7 @@ extends Node2D
 @onready var pause_screen = $Screens/PauseScreen
 @onready var main_bg = $Parallax2D/MainBg
 @onready var book = $Book
+@onready var story_label: Label = $StoryPanel/StoryLabel
 
 const MARGIN : float = 55.0
 
@@ -23,6 +24,7 @@ var _title : String
 var letter_counter : int = 0
 var _last_letter_emitted : bool = false
 var letters_burned : Array = []
+var _story_to_print : String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,6 +42,9 @@ func _ready():
 	message = tr("KEY_MAIN_LEVEL")
 	message += ": %s/%s" % [str(GameManager.actual_level), str(GameManager.difficulty_dict[GameManager.actual_difficulty]["boss_level"])]
 	level_label.text = message
+	
+	story_label.text = " ".repeat(_story.length())
+	#story_label.text = _story_to_print
 	
 	letter_timer.wait_time = GameManager.get_wait_time()
 	var tween : Tween = create_tween()
@@ -98,6 +103,7 @@ func _input(event: InputEvent):
 					_on_update_score_label()
 					letter_timer.wait_time = GameManager.get_wait_time()
 					#print("Wait time: %s" % str(letter_timer.wait_time))
+					story_label.text = _set_char(story_label.text, ltime.story_position, letter)
 					return
 			#Remove points in HARD mode when wrong key is pressed
 			if GameManager.actual_difficulty == GameManager.Difficulty.HARD:
@@ -108,8 +114,10 @@ func _input(event: InputEvent):
 func _on_letter_time_timeout():
 	if _last_letter_emitted:
 		return
-	var new_letter = letter_scene.instantiate()
 	var letter_data : Dictionary = _get_legit_char_from_story()
+	if letter_data["letter"] == " ":
+		return
+	var new_letter = letter_scene.instantiate()
 	if letter_data["letter"] == "END":
 		new_letter.queue_free()
 		letter_timer.stop()
@@ -145,7 +153,7 @@ func game_over() -> void:
 func make_explosion_and_shoot(pos: Vector2) -> void:
 	var new_laser = laser_scene.instantiate()
 	add_child(new_laser)
-	new_laser.shoot(Vector2(576, 568), pos)
+	new_laser.shoot(Vector2(503, 568), pos)
 	var new_explo = expl_scene.instantiate()
 	new_explo.global_position = pos
 	add_child(new_explo)
@@ -170,6 +178,10 @@ func _get_legit_char_from_story() -> Dictionary:
 		if (_char >= "A" and _char <= "Z"):
 			letter_counter = i + 1
 			return {"letter": _char, "index": i}
+		else:
+			story_label.text = _set_char(story_label.text, i, _char)
+			letter_counter = i + 1
+			return {"letter": " ", "index": i}
 	return {"letter": "END", "index": story_chars.length()}
 
 
@@ -225,3 +237,9 @@ func resume_game() -> void:
 
 func _on_update_score_label():
 	score_label.text = str(GameManager.PlayerScore).pad_zeros(5)
+
+
+func _set_char(text: String, index: int, char: String) -> String:
+	if index < 0 or index >= text.length():
+		return text
+	return text.substr(0, index) + char + text.substr(index + 1)

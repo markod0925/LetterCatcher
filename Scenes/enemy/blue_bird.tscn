@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://112xvsxlstg5"]
+[gd_scene format=3 uid="uid://112xvsxlstg5"]
 
 [ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_3n7s7"]
 [ext_resource type="Texture2D" uid="uid://c8v6c2vco2xwo" path="res://Assets/enemies/blue_bird/blue_bird.png" id="2_601oy"]
@@ -74,9 +74,9 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="BlueBird" instance=ExtResource("1_3n7s7")]
+[node name="BlueBird" unique_id=497757343 instance=ExtResource("1_3n7s7")]
 balloon_size = Vector2(0.32, 0.28)
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1111382576]
 sprite_frames = SubResource("SpriteFrames_1ibbd")
 frame_progress = 0.389927

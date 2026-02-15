@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://ogbdgru40no0"]
+[gd_scene format=3 uid="uid://ogbdgru40no0"]
 
 [ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_u37tp"]
 [ext_resource type="Texture2D" uid="uid://hq182r2bwio7" path="res://Assets/enemies/boss/skeleton-animation_00.png" id="2_86cmy"]
@@ -134,19 +134,19 @@ animations = [{
 radius = 174.402
 height = 595.305
 
-[node name="Boss" instance=ExtResource("1_u37tp")]
+[node name="Boss" unique_id=1742216860 instance=ExtResource("1_u37tp")]
 scale = Vector2(0.7, 0.7)
 balloon_size = Vector2(4.5, 5)
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1111382576]
 sprite_frames = SubResource("SpriteFrames_83j0l")
 frame_progress = 0.010285
 offset = Vector2(0, -250)
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1" unique_id=746948135]
 position = Vector2(0, -250)
 rotation = 0.230383
 shape = SubResource("CapsuleShape2D_ka2gq")
 
-[node name="Baloon" parent="." index="2"]
+[node name="Baloon" parent="." index="2" unique_id=1632697293]
 offset = Vector2(0, -33)

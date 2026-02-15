@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://08xrhkd45lt1"]
+[gd_scene format=3 uid="uid://08xrhkd45lt1"]
 
 [ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_1kj42"]
 [ext_resource type="Texture2D" uid="uid://cdbidma05ajxa" path="res://Assets/enemies/vulture/vulture.png" id="2_147tx"]
@@ -39,9 +39,9 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Vulture" instance=ExtResource("1_1kj42")]
+[node name="Vulture" unique_id=1682072759 instance=ExtResource("1_1kj42")]
 balloon_size = Vector2(0.35, 0.35)
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1111382576]
 sprite_frames = SubResource("SpriteFrames_td30j")
 frame_progress = 0.928204

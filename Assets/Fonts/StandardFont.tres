@@ -1,4 +1,4 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://de5678chpjhfp"]
+[gd_resource type="LabelSettings" format=3 uid="uid://de5678chpjhfp"]
 
 [ext_resource type="FontFile" uid="uid://cbiqukoa57qgb" path="res://Assets/Fonts/Roboto-Bold.ttf" id="1_e5mq5"]
 

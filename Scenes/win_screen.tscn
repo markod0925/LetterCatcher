@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://da2idyabqrl3b"]
+[gd_scene format=3 uid="uid://da2idyabqrl3b"]
 
-[ext_resource type="Script" path="res://Scenes/win_screen.gd" id="1_4cfjq"]
+[ext_resource type="Script" uid="uid://brtjpx75ngl3j" path="res://Scenes/win_screen.gd" id="1_4cfjq"]
 [ext_resource type="FontFile" uid="uid://cbiqukoa57qgb" path="res://Assets/Fonts/Roboto-Bold.ttf" id="1_kaxq5"]
 [ext_resource type="FontFile" uid="uid://cq2eoifnq63wf" path="res://Assets/Fonts/SourGummy-VariableFontwght.ttf" id="2_e4bcb"]
 [ext_resource type="LabelSettings" uid="uid://de5678chpjhfp" path="res://Assets/Fonts/StandardFont.tres" id="2_wfjii"]
@@ -22,7 +22,7 @@ outline_color = Color(1, 1, 1, 0.337255)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="WinScreen" type="Control"]
+[node name="WinScreen" type="Control" unique_id=958508050]
 layout_direction = 1
 layout_mode = 3
 anchors_preset = 15
@@ -34,7 +34,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_4cfjq")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=456742349]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,7 +43,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.486275, 0.478431, 0.317647, 0.745098)
 
-[node name="UpMsg" type="Label" parent="."]
+[node name="UpMsg" type="Label" parent="." unique_id=655141951]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -61,7 +61,7 @@ Ecco la storia che hai salvato:"
 label_settings = SubResource("LabelSettings_crkay")
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1150808754]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -75,36 +75,36 @@ offset_bottom = 190.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="VBoxContainer"]
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=1404076064]
 layout_mode = 2
 text = "Regina"
 label_settings = ExtResource("2_wfjii")
 
-[node name="StoryText" type="Label" parent="VBoxContainer"]
+[node name="StoryText" type="Label" parent="VBoxContainer" unique_id=24723018]
 custom_minimum_size = Vector2(900, 200)
 layout_mode = 2
 text = "La regina era bella e gentile, con i capelli biondi e gli occhi azzurri. La regina amava i fiori e gli animali, e passava le giornate a passeggiare nei giardini del castello. La regina era amata da tutti, per la sua bontà e la sua generosità."
 label_settings = SubResource("LabelSettings_ky1gi")
 autowrap_mode = 3
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1732238338]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1587765521]
 layout_mode = 2
 alignment = 2
 
-[node name="ScoreLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=2121095113]
 layout_mode = 2
 text = "Score:"
 label_settings = ExtResource("5_4akb0")
 
-[node name="ScoreNumber" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="ScoreNumber" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=860968740]
 layout_mode = 2
 text = "00000"
 label_settings = ExtResource("4_03xs4")
 
-[node name="SpaceMsg" type="Label" parent="."]
+[node name="SpaceMsg" type="Label" parent="." unique_id=1751121370]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

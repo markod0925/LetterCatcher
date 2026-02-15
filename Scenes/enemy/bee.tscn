@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dqx81meedn3e6"]
+[gd_scene format=3 uid="uid://dqx81meedn3e6"]
 
 [ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_wxopi"]
 [ext_resource type="Texture2D" uid="uid://cab8woe6d65en" path="res://Assets/enemies/bee/bee.png" id="2_fmvi2"]
@@ -67,9 +67,9 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Bee" instance=ExtResource("1_wxopi")]
+[node name="Bee" unique_id=2019861399 instance=ExtResource("1_wxopi")]
 balloon_size = Vector2(0.35, 0.3)
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1111382576]
 sprite_frames = SubResource("SpriteFrames_ets7b")
 frame_progress = 0.0

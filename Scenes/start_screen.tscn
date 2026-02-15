@@ -1,6 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://ddh1ya3eo1r2k"]
+[gd_scene format=3 uid="uid://ddh1ya3eo1r2k"]
 
-[ext_resource type="Script" path="res://Scenes/start_screen.gd" id="1_krd8m"]
+[ext_resource type="Script" uid="uid://dvn1q4d3khhy6" path="res://Scenes/start_screen.gd" id="1_krd8m"]
 [ext_resource type="Texture2D" uid="uid://cohjldet1u0br" path="res://Assets/env/MainBG.png" id="1_w78yl"]
 [ext_resource type="LabelSettings" uid="uid://dkxqwnbtyd37q" path="res://Assets/Fonts/TitleFontBigBlue.tres" id="2_n0pen"]
 [ext_resource type="FontFile" uid="uid://cq2eoifnq63wf" path="res://Assets/Fonts/SourGummy-VariableFontwght.ttf" id="3_dxkwu"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cir2mbg0qjh5c" path="res://Assets/Flags/flag_es.svg" id="8_8cnpk"]
 [ext_resource type="Texture2D" uid="uid://d0ui0dryx4c8y" path="res://Assets/Flags/flag_de.svg" id="10_n8l8w"]
 [ext_resource type="Texture2D" uid="uid://bktofya4jqcvj" path="res://Assets/Flags/flag_fr.svg" id="11_ivl53"]
-[ext_resource type="Shader" path="res://Shaders/color_blind.gdshader" id="12_kv0n5"]
+[ext_resource type="Shader" uid="uid://b1plsojp282jv" path="res://Shaders/color_blind.gdshader" id="12_kv0n5"]
 
 [sub_resource type="Shader" id="Shader_l2mqf"]
 code = "shader_type canvas_item;
@@ -42,8 +42,8 @@ noise = SubResource("FastNoiseLite_cygvc")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_m5x3m"]
 shader = SubResource("Shader_l2mqf")
-shader_parameter/dissolve_pct = 0.0
 shader_parameter/noise_tex = SubResource("NoiseTexture2D_s724y")
+shader_parameter/dissolve_pct = 0.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_6jjqe"]
 font = ExtResource("3_dxkwu")
@@ -87,8 +87,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qvplf"]
 _data = {
-"RESET": SubResource("Animation_pvp5r"),
-"dissolve": SubResource("Animation_bsfso")
+&"RESET": SubResource("Animation_pvp5r"),
+&"dissolve": SubResource("Animation_bsfso")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i33bv"]
@@ -96,7 +96,7 @@ shader = ExtResource("12_kv0n5")
 shader_parameter/mode = 0
 shader_parameter/intensity = 0.5
 
-[node name="StartScreen" type="Control"]
+[node name="StartScreen" type="Control" unique_id=1269900246]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -105,7 +105,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_krd8m")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=511159067]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,7 +114,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1857616905]
 material = SubResource("ShaderMaterial_m5x3m")
 layout_mode = 1
 anchors_preset = 15
@@ -125,7 +125,7 @@ grow_vertical = 2
 texture = ExtResource("1_w78yl")
 expand_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1661491929]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -136,102 +136,100 @@ offset_bottom = 40.0
 grow_horizontal = 2
 alignment = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=760204291]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Titolo" type="Label" parent="VBoxContainer"]
+[node name="Titolo" type="Label" parent="VBoxContainer" unique_id=956328655]
 layout_mode = 2
 text = "SALVIAMO LE STORIE"
 label_settings = ExtResource("2_n0pen")
 horizontal_alignment = 1
 language = "en"
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1591851678]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1576233608]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=696570831]
 layout_mode = 2
 
-[node name="Titolo2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Titolo2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1482992661]
 layout_mode = 2
 text = "Difficoltà:"
 label_settings = SubResource("LabelSettings_6jjqe")
 
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=1459665069]
 custom_minimum_size = Vector2(160, 45)
 layout_mode = 2
 theme = ExtResource("4_hc1st")
 theme_override_constants/margin_left = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer3" unique_id=189682017]
 layout_mode = 2
 
-[node name="Easy" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer"]
+[node name="Easy" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer" unique_id=1796371621]
 layout_mode = 2
 text = "FACILE"
 
-[node name="EasyRecord" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer"]
+[node name="EasyRecord" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer3/VBoxContainer" unique_id=350285000]
 layout_mode = 2
 text = "00000"
 label_settings = ExtResource("6_4cyh3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=1157104794]
 custom_minimum_size = Vector2(160, 45)
 layout_mode = 2
 theme = ExtResource("4_hc1st")
 theme_override_constants/margin_left = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer4"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer4" unique_id=257783584]
 layout_mode = 2
 
-[node name="Medium" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer4/VBoxContainer"]
+[node name="Medium" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer4/VBoxContainer" unique_id=1321387912]
 layout_mode = 2
 text = "INTERMEDIO"
 
-[node name="MidRecord" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer4/VBoxContainer"]
+[node name="MidRecord" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer4/VBoxContainer" unique_id=299312019]
 layout_mode = 2
 text = "00000"
 label_settings = ExtResource("6_4cyh3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer5" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="MarginContainer5" type="MarginContainer" parent="VBoxContainer/HBoxContainer" unique_id=1277898290]
 custom_minimum_size = Vector2(160, 45)
 layout_mode = 2
 theme = ExtResource("4_hc1st")
 theme_override_constants/margin_left = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer5"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer5" unique_id=345563889]
 layout_mode = 2
 
-[node name="Hard" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer5/VBoxContainer"]
+[node name="Hard" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer5/VBoxContainer" unique_id=761446295]
 layout_mode = 2
 text = "DIFFICILE"
 
-[node name="HardRecord" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer5/VBoxContainer"]
+[node name="HardRecord" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer5/VBoxContainer" unique_id=1006273315]
 layout_mode = 2
 text = "00000"
 label_settings = ExtResource("6_4cyh3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_qvplf")
-}
-autoplay = "dissolve"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=226336551]
+libraries/ = SubResource("AnimationLibrary_qvplf")
+autoplay = &"dissolve"
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=75110064]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -247,46 +245,46 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer2" type="HBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer2" type="HBoxContainer" parent="MarginContainer" unique_id=1028695634]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="LangEnButton" type="TextureButton" parent="MarginContainer/VBoxContainer2"]
+[node name="LangEnButton" type="TextureButton" parent="MarginContainer/VBoxContainer2" unique_id=1518197369]
 custom_minimum_size = Vector2(70, 50)
 layout_mode = 2
 texture_normal = ExtResource("6_84u72")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="LangItButton" type="TextureButton" parent="MarginContainer/VBoxContainer2"]
+[node name="LangItButton" type="TextureButton" parent="MarginContainer/VBoxContainer2" unique_id=1936260296]
 custom_minimum_size = Vector2(70, 50)
 layout_mode = 2
 texture_normal = ExtResource("7_ytpxl")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="LangEsButton" type="TextureButton" parent="MarginContainer/VBoxContainer2"]
+[node name="LangEsButton" type="TextureButton" parent="MarginContainer/VBoxContainer2" unique_id=1818804325]
 custom_minimum_size = Vector2(70, 50)
 layout_mode = 2
 texture_normal = ExtResource("8_8cnpk")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="LangDeButton" type="TextureButton" parent="MarginContainer/VBoxContainer2"]
+[node name="LangDeButton" type="TextureButton" parent="MarginContainer/VBoxContainer2" unique_id=402423127]
 custom_minimum_size = Vector2(70, 50)
 layout_mode = 2
 texture_normal = ExtResource("10_n8l8w")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="LangFrButton" type="TextureButton" parent="MarginContainer/VBoxContainer2"]
+[node name="LangFrButton" type="TextureButton" parent="MarginContainer/VBoxContainer2" unique_id=231880297]
 custom_minimum_size = Vector2(70, 50)
 layout_mode = 2
 texture_normal = ExtResource("11_ivl53")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1988127920]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -299,24 +297,24 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer2" type="HBoxContainer" parent="MarginContainer2"]
+[node name="VBoxContainer2" type="HBoxContainer" parent="MarginContainer2" unique_id=1837310127]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="ResetButton" type="Button" parent="MarginContainer2/VBoxContainer2"]
+[node name="ResetButton" type="Button" parent="MarginContainer2/VBoxContainer2" unique_id=186068707]
 layout_mode = 2
 theme = ExtResource("4_hc1st")
 text = "Resetta i punteggi"
 
-[node name="ColorBlindMode" type="Button" parent="MarginContainer2/VBoxContainer2"]
+[node name="ColorBlindMode" type="Button" parent="MarginContainer2/VBoxContainer2" unique_id=625769530]
 layout_mode = 2
 theme = ExtResource("4_hc1st")
 text = "Modalità Daltonici"
 
-[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+[node name="BGMusic" type="AudioStreamPlayer" parent="." unique_id=9127927]
 volume_db = -20.0
 
-[node name="ColorBlindCorrection" type="ColorRect" parent="."]
+[node name="ColorBlindCorrection" type="ColorRect" parent="." unique_id=2014715996]
 material = SubResource("ShaderMaterial_i33bv")
 layout_mode = 1
 anchors_preset = 15

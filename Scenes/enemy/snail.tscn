@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c7u3w00jm6mbn"]
+[gd_scene format=3 uid="uid://c7u3w00jm6mbn"]
 
 [ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_i2232"]
 [ext_resource type="Texture2D" uid="uid://fmwjpnvjli5h" path="res://Assets/enemies/snail/snail.png" id="2_4pw18"]
@@ -84,12 +84,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_nq6kh"]
 radius = 20.0
 
-[node name="Snail" instance=ExtResource("1_i2232")]
+[node name="Snail" unique_id=992665166 instance=ExtResource("1_i2232")]
 balloon_size = Vector2(0.45, 0.4)
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1111382576]
 sprite_frames = SubResource("SpriteFrames_ltrfl")
 frame_progress = 0.0
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1" unique_id=746948135]
 shape = SubResource("CircleShape2D_nq6kh")

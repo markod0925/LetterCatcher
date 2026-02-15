@@ -23,11 +23,11 @@ func _ready():
 func _process(delta):
 	position.y += delta*falling_speed
 	
-	if position.y > vpr.end.y-36:
+	if position.y > 480:
 		BURN_LETTER.emit(story_position)
 		# Play an animation of burning and then queue_free()
 		var burning = burning_scene.instantiate()
-		burning.position = position
+		burning.position = position-Vector2(0.0, 50.0)
 		get_tree().get_root().add_child(burning)
 		queue_free()
 
@@ -53,4 +53,4 @@ func fly_away():
 	baloon.show()
 	var tween = self.create_tween()
 	tween.tween_property(baloon, "scale", Vector2(0.4, 0.4), 0.3)
-	tween.tween_property(self, "modulate:a", 0.3, 5.0)
+	tween.tween_property(self, "modulate:a", 0.1, 1.5)

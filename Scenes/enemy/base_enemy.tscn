@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpi0ek0fdfu1v"]
+[gd_scene format=3 uid="uid://dpi0ek0fdfu1v"]
 
-[ext_resource type="Script" path="res://Scenes/enemy/base_enemy.gd" id="1_ex2c7"]
+[ext_resource type="Script" uid="uid://cyq22pnh4khwn" path="res://Scenes/enemy/base_enemy.gd" id="1_ex2c7"]
 [ext_resource type="Texture2D" uid="uid://d0b6hknt484kg" path="res://Assets/enemies/bat/bat.png" id="2_d33in"]
 [ext_resource type="Texture2D" uid="uid://c0j66u7n7b6ho" path="res://Assets/Balloons/balloon_form_1_1.png" id="3_4snb5"]
 
@@ -64,21 +64,21 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_doltu"]
 radius = 16.0
 
-[node name="BaseEnemy" type="Area2D"]
+[node name="BaseEnemy" type="Area2D" unique_id=1313299371]
 scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_ex2c7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1111382576]
 sprite_frames = SubResource("SpriteFrames_eoelx")
 autoplay = "default"
 frame_progress = 0.512874
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=746948135]
 shape = SubResource("CircleShape2D_doltu")
 
-[node name="Baloon" type="Sprite2D" parent="."]
+[node name="Baloon" type="Sprite2D" parent="." unique_id=1632697293]
 visible = false
 modulate = Color(1, 1, 1, 0.392157)
 scale = Vector2(0.01, 0.01)

@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dktd5ky8ei64m"]
+[gd_scene format=3 uid="uid://dktd5ky8ei64m"]
 
-[ext_resource type="Script" path="res://Scenes/pause_screen.gd" id="1_1sq0n"]
+[ext_resource type="Script" uid="uid://bm4nlqe1hkec8" path="res://Scenes/pause_screen.gd" id="1_1sq0n"]
 [ext_resource type="LabelSettings" uid="uid://dirnaa0p38ohu" path="res://Assets/Fonts/StandardFont_Gummy.tres" id="1_vlh8i"]
 [ext_resource type="FontFile" uid="uid://cq2eoifnq63wf" path="res://Assets/Fonts/SourGummy-VariableFontwght.ttf" id="2_5xfte"]
 [ext_resource type="Theme" uid="uid://qls1k3mlglce" path="res://Assets/Themes/button_theme.tres" id="3_43ilu"]
@@ -12,7 +12,7 @@ outline_color = Color(1, 1, 1, 0.337255)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="PauseScreen" type="Control"]
+[node name="PauseScreen" type="Control" unique_id=1586708455]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1sq0n")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1803388828]
 custom_minimum_size = Vector2(350, 200)
 layout_mode = 1
 anchors_preset = 8
@@ -36,25 +36,25 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=1318019035]
 layout_mode = 2
 color = Color(0.0748, 0.44, 0.324353, 0.403922)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=627969106]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=816397766]
 layout_mode = 2
 text = "PAUSA"
 label_settings = ExtResource("1_vlh8i")
 horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=35458029]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=525744422]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 text = "PREMI ESC PER CONTINUARE"
@@ -62,11 +62,11 @@ label_settings = SubResource("LabelSettings_k4jv8")
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=1828473101]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="RestartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="RestartButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1782441035]
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("3_43ilu")

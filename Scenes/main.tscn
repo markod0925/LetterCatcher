@@ -1,38 +1,39 @@
-[gd_scene load_steps=19 format=3 uid="uid://rk1a47bnre2t"]
+[gd_scene format=3 uid="uid://rk1a47bnre2t"]
 
-[ext_resource type="Script" path="res://Scenes/main.gd" id="1_fepgo"]
+[ext_resource type="Script" uid="uid://dpn5f80ucoo5j" path="res://Scenes/main.gd" id="1_fepgo"]
 [ext_resource type="PackedScene" uid="uid://wrfanq0j4cxn" path="res://Scenes/letter.tscn" id="2_qphlm"]
 [ext_resource type="Texture2D" uid="uid://pksythw4pg0b" path="res://Assets/env/colored_castle.png" id="3_h3s4m"]
 [ext_resource type="PackedScene" uid="uid://bp3nakpjjn6ja" path="res://Scenes/explosion.tscn" id="3_u7id1"]
 [ext_resource type="PackedScene" uid="uid://bstijr8thxqs0" path="res://Assets/vfx/shoot.tscn" id="4_s52cq"]
 [ext_resource type="PackedScene" uid="uid://blc7gqqm3c0xj" path="res://Scenes/game_over_screen.tscn" id="5_f6fbr"]
-[ext_resource type="Shader" path="res://Shaders/dissolve.gdshader" id="5_fao8l"]
+[ext_resource type="Shader" uid="uid://dbxjjb8r3g63p" path="res://Shaders/dissolve.gdshader" id="5_fao8l"]
 [ext_resource type="PackedScene" uid="uid://7m0imtafnstf" path="res://Scenes/enemy_manager.tscn" id="5_nc7b8"]
 [ext_resource type="LabelSettings" uid="uid://dirnaa0p38ohu" path="res://Assets/Fonts/StandardFont_Gummy.tres" id="7_fjopy"]
 [ext_resource type="PackedScene" uid="uid://da2idyabqrl3b" path="res://Scenes/win_screen.tscn" id="7_wo1di"]
 [ext_resource type="PackedScene" uid="uid://gqltcffyy5te" path="res://Assets/vfx/flame_below.tscn" id="8_3u3ae"]
 [ext_resource type="PackedScene" uid="uid://dktd5ky8ei64m" path="res://Scenes/pause_screen.tscn" id="10_gc2qo"]
 [ext_resource type="Texture2D" uid="uid://3vxbd7djknvm" path="res://Assets/book.png" id="11_xhnq1"]
-[ext_resource type="Shader" path="res://Shaders/color_blind.gdshader" id="12_1ic6c"]
+[ext_resource type="Shader" uid="uid://b1plsojp282jv" path="res://Shaders/color_blind.gdshader" id="12_1ic6c"]
+[ext_resource type="LabelSettings" uid="uid://fvels2ilqglw" path="res://Assets/Fonts/Roboto_White_22.tres" id="15_wsu2k"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vyt85"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4n0h2"]
-seamless = true
 noise = SubResource("FastNoiseLite_vyt85")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_os7o6"]
 shader = ExtResource("5_fao8l")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_4n0h2")
 shader_parameter/dissolve_pct = 0.0
 shader_parameter/ask_color = Color(0, 0, 0, 1)
-shader_parameter/noise_tex = SubResource("NoiseTexture2D_4n0h2")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_30cfi"]
 shader = ExtResource("12_1ic6c")
 shader_parameter/mode = 0
 shader_parameter/intensity = 0.5
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("letter_timer", "letter_container", "balloon_container", "sound_container", "score_label", "level_label")]
+[node name="Main" type="Node2D" unique_id=889149038 node_paths=PackedStringArray("letter_timer", "letter_container", "balloon_container", "sound_container", "score_label", "level_label")]
 script = ExtResource("1_fepgo")
 letter_scene = ExtResource("2_qphlm")
 expl_scene = ExtResource("3_u7id1")
@@ -43,13 +44,13 @@ sound_container = NodePath("SoundPlayers")
 score_label = NodePath("ScoreLabel")
 laser_scene = ExtResource("4_s52cq")
 level_label = NodePath("LevelLabel")
-metadata/_edit_vertical_guides_ = [568.0]
-metadata/_edit_horizontal_guides_ = [504.0]
+metadata/_edit_vertical_guides_ = [576.0]
+metadata/_edit_horizontal_guides_ = [503.0]
 
-[node name="BG" type="CanvasLayer" parent="."]
+[node name="BG" type="CanvasLayer" parent="." unique_id=1339852000]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="BG"]
+[node name="ColorRect" type="ColorRect" parent="BG" unique_id=1733280106]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -57,86 +58,86 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="LetterContainer" type="Node2D" parent="."]
+[node name="LetterContainer" type="Node2D" parent="." unique_id=1191505235]
 z_index = 10
 
-[node name="BalloonContainer" type="Node" parent="."]
+[node name="BalloonContainer" type="Node" parent="." unique_id=926546188]
 
-[node name="SoundPlayers" type="Node" parent="."]
+[node name="SoundPlayers" type="Node" parent="." unique_id=1272184996]
 
-[node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="SoundPlayers"]
+[node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="SoundPlayers" unique_id=1425232671]
 volume_db = -10.0
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SoundPlayers"]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SoundPlayers" unique_id=1869564972]
 volume_db = -10.0
 
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="SoundPlayers"]
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="SoundPlayers" unique_id=76757193]
 volume_db = -10.0
 
-[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="SoundPlayers"]
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="SoundPlayers" unique_id=834908084]
 volume_db = -10.0
 
-[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="SoundPlayers"]
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="SoundPlayers" unique_id=667623660]
 volume_db = -10.0
 
-[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="SoundPlayers"]
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="SoundPlayers" unique_id=604399001]
 volume_db = -10.0
 
-[node name="EnemyManager" parent="." instance=ExtResource("5_nc7b8")]
+[node name="EnemyManager" parent="." unique_id=1543839910 instance=ExtResource("5_nc7b8")]
 
-[node name="LetterTime" type="Timer" parent="."]
+[node name="LetterTime" type="Timer" parent="." unique_id=406034011]
 wait_time = 2.0
 autostart = true
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1692947760]
 texture_filter = 2
 repeat_size = Vector2(1152, 0)
 autoscroll = Vector2(5, 0)
 
-[node name="MainBg" type="Sprite2D" parent="Parallax2D"]
+[node name="MainBg" type="Sprite2D" parent="Parallax2D" unique_id=1469831225]
 material = SubResource("ShaderMaterial_os7o6")
 position = Vector2(0, -150)
 scale = Vector2(1.125, 0.881951)
 texture = ExtResource("3_h3s4m")
 centered = false
 
-[node name="ScoreLabel" type="Label" parent="."]
+[node name="ScoreLabel" type="Label" parent="." unique_id=814935288]
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 936.0
-offset_top = 552.0
+offset_top = 406.0
 offset_right = 1146.0
-offset_bottom = 590.0
+offset_bottom = 448.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 text = "00000"
 label_settings = ExtResource("7_fjopy")
 horizontal_alignment = 2
 
-[node name="LevelLabel" type="Label" parent="."]
+[node name="LevelLabel" type="Label" parent="." unique_id=1053198677]
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 16.0
-offset_top = 552.0
+offset_top = 406.0
 offset_right = 226.0
-offset_bottom = 590.0
+offset_bottom = 448.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 text = "Livello: 1"
 label_settings = ExtResource("7_fjopy")
 
-[node name="Screens" type="CanvasLayer" parent="."]
+[node name="Screens" type="CanvasLayer" parent="." unique_id=1957349311]
 
-[node name="GameOverScreen" parent="Screens" instance=ExtResource("5_f6fbr")]
+[node name="GameOverScreen" parent="Screens" unique_id=67421244 instance=ExtResource("5_f6fbr")]
 visible = false
 
-[node name="WinScreen" parent="Screens" instance=ExtResource("7_wo1di")]
+[node name="WinScreen" parent="Screens" unique_id=1288884260 instance=ExtResource("7_wo1di")]
 visible = false
 
-[node name="PauseScreen" parent="Screens" instance=ExtResource("10_gc2qo")]
+[node name="PauseScreen" parent="Screens" unique_id=1417607160 instance=ExtResource("10_gc2qo")]
 visible = false
 
-[node name="ColorBlindCorrection" type="ColorRect" parent="Screens"]
+[node name="ColorBlindCorrection" type="ColorRect" parent="Screens" unique_id=376089116]
 material = SubResource("ShaderMaterial_30cfi")
 anchors_preset = 15
 anchor_right = 1.0
@@ -145,17 +146,38 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Flames" parent="." instance=ExtResource("8_3u3ae")]
-position = Vector2(576, 648)
+[node name="Flames" parent="." unique_id=351541219 instance=ExtResource("8_3u3ae")]
+position = Vector2(576, 502)
 scale = Vector2(0.5, 0.5)
 
-[node name="Book" type="Sprite2D" parent="."]
+[node name="Book" type="Sprite2D" parent="." unique_id=1279395967]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(576, 568)
+position = Vector2(576, 422)
 texture = ExtResource("11_xhnq1")
 
-[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+[node name="BGMusic" type="AudioStreamPlayer" parent="." unique_id=388971367]
 volume_db = -30.0
+
+[node name="StoryPanel" type="Panel" parent="." unique_id=1358345974]
+offset_top = 502.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="StoryLabel" type="Label" parent="StoryPanel" unique_id=2006611761]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = -10.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "La regina era bella e gentile, con i capelli biondi e gli occhi azzurri. La regina amava i fiori e gli animali, e passava le giornate a passeggiare nei giardini del castello. La regina era amata da tutti, per la sua bontà e la sua generosità."
+label_settings = ExtResource("15_wsu2k")
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="UPDATE_SCORE_LABEL" from="EnemyManager" to="." method="_on_update_score_label"]
 [connection signal="timeout" from="LetterTime" to="." method="_on_letter_time_timeout"]

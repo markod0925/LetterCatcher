@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbynm47656of4"]
+[gd_scene format=3 uid="uid://bbynm47656of4"]
 
-[ext_resource type="Script" path="res://Scenes/popup/popup.gd" id="1_wj7ca"]
+[ext_resource type="Script" uid="uid://cg3ifk2x0d4x3" path="res://Scenes/popup/popup.gd" id="1_wj7ca"]
 [ext_resource type="FontFile" uid="uid://cq2eoifnq63wf" path="res://Assets/Fonts/SourGummy-VariableFontwght.ttf" id="2_4o14p"]
 
 [sub_resource type="Animation" id="Animation_3xlf0"]
@@ -73,8 +73,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_me7hl"]
 _data = {
-"RESET": SubResource("Animation_3xlf0"),
-"popup": SubResource("Animation_lkynr")
+&"RESET": SubResource("Animation_3xlf0"),
+&"popup": SubResource("Animation_lkynr")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_7xa1y"]
@@ -83,17 +83,15 @@ font_size = 24
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Popup" type="Node2D"]
+[node name="Popup" type="Node2D" unique_id=1472321384]
 z_index = 2
 script = ExtResource("1_wj7ca")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_me7hl")
-}
-autoplay = "popup"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=639915949]
+libraries/ = SubResource("AnimationLibrary_me7hl")
+autoplay = &"popup"
 
-[node name="InfoLabel" type="Label" parent="."]
+[node name="InfoLabel" type="Label" parent="." unique_id=406395310]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

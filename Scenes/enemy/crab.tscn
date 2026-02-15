@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkonuwq37gxjx"]
+[gd_scene format=3 uid="uid://bkonuwq37gxjx"]
 
 [ext_resource type="PackedScene" uid="uid://dpi0ek0fdfu1v" path="res://Scenes/enemy/base_enemy.tscn" id="1_yb70g"]
 [ext_resource type="Texture2D" uid="uid://cpl1u14rhollm" path="res://Assets/enemies/crab/crab-walk.png" id="2_6gfip"]
@@ -56,12 +56,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hidrm"]
 radius = 20.0
 
-[node name="Crab" instance=ExtResource("1_yb70g")]
+[node name="Crab" unique_id=203616832 instance=ExtResource("1_yb70g")]
 balloon_size = Vector2(0.42, 0.35)
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1111382576]
 sprite_frames = SubResource("SpriteFrames_iauw6")
 frame_progress = 0.0
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1" unique_id=746948135]
 shape = SubResource("CircleShape2D_hidrm")

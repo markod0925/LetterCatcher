@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://blc7gqqm3c0xj"]
+[gd_scene format=3 uid="uid://blc7gqqm3c0xj"]
 
-[ext_resource type="Script" path="res://Scenes/game_over_screen.gd" id="1_mhl0i"]
+[ext_resource type="Script" uid="uid://b0rw0ifuevrnj" path="res://Scenes/game_over_screen.gd" id="1_mhl0i"]
 [ext_resource type="FontFile" uid="uid://cq2eoifnq63wf" path="res://Assets/Fonts/SourGummy-VariableFontwght.ttf" id="2_81bny"]
 [ext_resource type="LabelSettings" uid="uid://syw0pv3f8k76" path="res://Assets/Fonts/StandardFont_White.tres" id="2_snvoh"]
 
@@ -20,7 +20,7 @@ outline_color = Color(1, 1, 1, 0.337255)
 shadow_size = 3
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="GameOverScreen" type="Control"]
+[node name="GameOverScreen" type="Control" unique_id=1001402212]
 layout_direction = 1
 layout_mode = 3
 anchors_preset = 15
@@ -32,7 +32,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_mhl0i")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2125840254]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,7 +41,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.513726)
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1335905977]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -58,7 +58,7 @@ text = "GAME OVER!"
 label_settings = SubResource("LabelSettings_16bjr")
 horizontal_alignment = 1
 
-[node name="Highscore" type="Label" parent="."]
+[node name="Highscore" type="Label" parent="." unique_id=309707036]
 layout_mode = 0
 offset_left = 432.0
 offset_top = 304.0
@@ -68,7 +68,7 @@ text = "PUNTEGGIO: 00000"
 label_settings = SubResource("LabelSettings_ptybp")
 horizontal_alignment = 1
 
-[node name="SpaceMsg" type="Label" parent="."]
+[node name="SpaceMsg" type="Label" parent="." unique_id=376202997]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

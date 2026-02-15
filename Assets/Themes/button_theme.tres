@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://qls1k3mlglce"]
+[gd_resource type="Theme" format=3 uid="uid://qls1k3mlglce"]
 
 [ext_resource type="FontFile" uid="uid://cq2eoifnq63wf" path="res://Assets/Fonts/SourGummy-VariableFontwght.ttf" id="1_novf6"]
 [ext_resource type="Texture2D" uid="uid://bci5e0rrq0bg7" path="res://Assets/buttons/6d381231-7a78-43c4-bb5d-cbb81c66ab4c.png" id="2_u3htv"]

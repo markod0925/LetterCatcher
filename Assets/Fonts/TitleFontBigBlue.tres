@@ -1,4 +1,4 @@
-[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dkxqwnbtyd37q"]
+[gd_resource type="LabelSettings" format=3 uid="uid://dkxqwnbtyd37q"]
 
 [ext_resource type="FontFile" uid="uid://cq2eoifnq63wf" path="res://Assets/Fonts/SourGummy-VariableFontwght.ttf" id="1_d36eo"]
 

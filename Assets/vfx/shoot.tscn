@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bstijr8thxqs0"]
+[gd_scene format=3 uid="uid://bstijr8thxqs0"]
 
-[ext_resource type="Script" path="res://Assets/vfx/shoot.gd" id="1_xcjs0"]
+[ext_resource type="Script" uid="uid://116ey3o0pkms" path="res://Assets/vfx/shoot.gd" id="1_xcjs0"]
 
 [sub_resource type="Curve" id="Curve_1lswh"]
 _data = [Vector2(0, 0.501887), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -10,7 +10,7 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.769231)
 colors = PackedColorArray(1, 1, 1, 0, 0.176595, 0.523163, 0.96875, 1)
 
-[node name="Shoot" type="Line2D"]
+[node name="Shoot" type="Line2D" unique_id=25072688]
 width = 4.0
 width_curve = SubResource("Curve_1lswh")
 default_color = Color(0.176471, 0.521569, 0.968627, 1)
@@ -19,13 +19,13 @@ begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource("1_xcjs0")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=192562049]
 wait_time = 0.1
 one_shot = true
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." unique_id=2103351490]
 collision_mask = 0
 
-[node name="LineShape" type="CollisionShape2D" parent="Hitbox"]
+[node name="LineShape" type="CollisionShape2D" parent="Hitbox" unique_id=1314941123]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
