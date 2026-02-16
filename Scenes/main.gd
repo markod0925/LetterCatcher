@@ -24,7 +24,6 @@ var _title : String
 var letter_counter : int = 0
 var _last_letter_emitted : bool = false
 var letters_burned : Array = []
-var _story_to_print : String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -103,7 +102,7 @@ func _input(event: InputEvent):
 					_on_update_score_label()
 					letter_timer.wait_time = GameManager.get_wait_time()
 					#print("Wait time: %s" % str(letter_timer.wait_time))
-					story_label.text = _set_char(story_label.text, ltime.story_position, letter)
+					story_label.text = _set_char(story_label.text, ltime.story_position, _story[ltime.story_position])
 					return
 			#Remove points in HARD mode when wrong key is pressed
 			if GameManager.actual_difficulty == GameManager.Difficulty.HARD:
@@ -179,7 +178,7 @@ func _get_legit_char_from_story() -> Dictionary:
 			letter_counter = i + 1
 			return {"letter": _char, "index": i}
 		else:
-			story_label.text = _set_char(story_label.text, i, _char)
+			story_label.text = _set_char(story_label.text, i, _story[i])
 			letter_counter = i + 1
 			return {"letter": " ", "index": i}
 	return {"letter": "END", "index": story_chars.length()}
@@ -239,7 +238,7 @@ func _on_update_score_label():
 	score_label.text = str(GameManager.PlayerScore).pad_zeros(5)
 
 
-func _set_char(text: String, index: int, char: String) -> String:
+func _set_char(text: String, index: int, new_char: String) -> String:
 	if index < 0 or index >= text.length():
 		return text
-	return text.substr(0, index) + char + text.substr(index + 1)
+	return text.substr(0, index) + new_char + text.substr(index + 1)
